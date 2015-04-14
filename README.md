@@ -1,4 +1,7 @@
 # Media Player SDK for Android
+
+SDK can be used for IPTV, Android client of surveillance system, IP camera viewer, TV player, OTT clients and other kinds of applications with video playback. Source code of samples can be provided.
+
    Mobile Video Playback SDK Features:
    * Hardware acceleration – Hardware accelerated decoding of HD video (H.264, MPEG4, MPEG2 and others).
    * Multi-core decoding – Support of decoding for Multi-core architecture.
@@ -16,10 +19,7 @@
    * Digital zoom and picture shifting
    * Thumbnails for live streams and files
    * Replay for live HLS stream
-     
-
-SDK can be used for IPTV, Android client of surveillance system, IP camera viewer, TV player, OTT clients and other kinds of applications with video playback. Source code of samples can be provided.
- 
+    
 
 ![RTSP player sample1](http://www.videoexpertsgroup.com/git/sample1.png)
 
