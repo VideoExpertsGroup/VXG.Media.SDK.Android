@@ -19,10 +19,11 @@ SDK can be used for IPTV, Android client of surveillance system, IP camera viewe
    * Digital zoom and picture shifting
    * Thumbnails for live streams and files
    * Replay for live HLS stream
-    
+   
+      
 
 ![RTSP player sample1](http://www.videoexpertsgroup.com/git/sample1.png)
 
-
+      
 
 ![RTSP player sample](http://www.videoexpertsgroup.com/git/sample2.png)
