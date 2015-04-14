@@ -1,4 +1,4 @@
-# MediaPlayerSDK
+# Media Player SDK for Android
 Mobile Video Playback SDK Features :
 - Hardware acceleration - Hardware acceleration to decode HD video (H.264, MPEG4, MPEG2 and other).
 - Multi-core decoding -  Support of multiple-core decoding.
