@@ -14,7 +14,7 @@ Mobile Video Playback SDK Features :
 - Smart and online thumbnails – quick and simple API to get a thumbnail for local files and network streams
 - Low latency for network stream – special API to control playback latency
 
-SDK can be used in IPTV, Android clien of Surevelene system , IP camera viewers , TV player and other kind of applications with video playback.
+SDK can be used in IPTV, Android client of surveillance system , IP camera viewers , TV player , OTT clients and other kind of applications with video playback.
 Source code of samples can be provided. 
 
 ![RTSP player sample1](http://www.videoexpertsgroup.com/git/sample1.png)
