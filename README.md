@@ -17,7 +17,6 @@ SDK can be used for IPTV, Android client of surveillance system, IP camera viewe
    * Low latency for network streams – Special API controls playback latency.
    * Recording from live camera and file trimming
    * Digital zoom and picture shifting
-   * Thumbnails for live streams and files
    * Replay for live HLS stream
    
       
