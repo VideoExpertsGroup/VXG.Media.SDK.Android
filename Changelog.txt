@@ -20,6 +20,67 @@ Source code of samples can be provided.
 ----------------
 Changes log
 ----------------
+
+Version 4.4.20160502
+----------------
+
+- Fixed crash if audio decoder is not opened and STAT is enabled.
+- Added WMA support with various frame  
+- Added getStreamInfo with stream Metadata only. Metadata for: context, chapter, program, stream, shoutcast
+- Added checking m3u and pls files , first stream is played by defualt
+- Fixed GetStatFPS
+- Start position is added for HLS stream with tag COMPLETE_
+- Fixed crash on attempt make utf string from not utf char* in JNI
+- Added support of DVB subtitle
+- SSL is 1.0.2g
+- Fixd ABR mode corrected. 2. https m3u8 list support added. 3. fps statistics corrected.
+- Added change seek and pause on RTSP protocola
+- Fixed Auto detection of CPU in case Open+Cpnfig
+- Added record for audio only 
+- Improved video quality on s/w render
+- Improved A/V sync 
+- Added special mode with minimal latency
+
+Version 4.3.20160122
+----------------
+- Fixed issue:  recorded files (mp4) are not played by regular android player and some social network
+- Fixed issue: datareceive_timeout value was reset to 1 after file playback
+- Added decoder restart if there is exception in decoder
+- Added new settings in config
+  setDecoderLatency/getDecoderLatency
+  - Setting works if s/w decoder i used , 1 - Low latency, frames are not buffered on decoder , 0 - frames are buffered in video decoder  by default
+  getInterruptOnClose/setInterruptOnClose
+  1 - interrupt connection and close, 0 - do not set a interruption close operation  stream and send TEARDOWN command
+  getConnectionTimeout/setConnectionTimeout
+  Interrupt connection by timeout if server does not respond 
+- Added mc_sei message for test purposes 
+- Fixed issue : frames are rendered with max speed if AV sync is OFF
+- Added Record OFF mode handled to reduce resource usage:
+   player.getConfig().setMode(PlayerModes.PP_MODE_ALL.val() & ~(PlayerModes.PP_MODE_RECORD.val()));
+- Added property to get last response for HTTP/RTMP  
+  PP_PROPERTY_PLP_RESPONSE_TEXT(4),
+  PP_PROPERTY_PLP_RESPONSE_CODE(5);
+- Added sample MediaPlayerSDKTest_LowLatency with minimal latency  
+
+
+
+Version 4.2.20151109
+----------------
+- Added the support of Android 6.0
+- Added mode "Record only" 
+- Added method to set start and end position for trim file
+- Fixed support for arm64-v8a 
+- PLP_ERROR event has extended. PP_PROPERTY_PLP_LAST_ERROR property added, use getPropInt(PP_PROPERTY_PLP_LAST_ERROR), getPropString(PP_PROPERTY_PLP_LAST_ERROR) to extract last error. There are streams has to be re-opened on error.
+- Fixed  Volume boost and volume detection corrected
+- Added support for RTMP+Wowza+TEA
+- Added Custom size for thumbnail
+- Added API to set cookie for HLS stream
+- Added new mode 21 "Crop by width"
+- Fixed crash on some decoders when pts discontinuity and multi-instance hw decoder initializations
+- Implemented hot swap surface for renderer. Also possible rendering with null surfcae
+- Added samples : MultiInstance,SwapVideoSurface,StreamControl,Android Studio and other 
+
+
 Version 3.1.20150410
 ----------------
 - Added CP_RECORD_CLOSED notification

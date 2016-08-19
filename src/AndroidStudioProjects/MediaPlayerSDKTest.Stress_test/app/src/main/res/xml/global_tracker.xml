@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<resources> 
+
+	<!-- the Local LogLevel for Analytics -->
+	<string name="ga_logLevel">verbose</string>
+
+	<!-- how often the dispatcher should fire -->
+	<integer name="ga_dispatchPeriod">300</integer>
+
+	<!-- Treat events as test events and don't send to google -->
+	<bool name="ga_dryRun">false</bool>
+
+	<!-- The screen names that will appear in reports -->
+	<string name="com.mycompany.MyActivity">Media Player SDK test</string>
+</resources>
