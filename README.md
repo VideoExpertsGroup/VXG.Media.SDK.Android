@@ -2,6 +2,8 @@
 
 SDK can be used for IPTV, Android client of surveillance system, IP camera viewer, TV player, OTT clients and other kinds of applications with video playback. Source code of samples can be provided.
 
+You can find more information here: https://www.videoexpertsgroup.com/vxg-video-sdk/
+
    Mobile Video Playback SDK Features:
    * Hardware acceleration – Hardware accelerated decoding of HD video (H.264, MPEG4, MPEG2 and others).
    * Multi-core decoding – Support of decoding for Multi-core architecture.
