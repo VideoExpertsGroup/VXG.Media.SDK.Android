@@ -1,6 +1,7 @@
 # Media Player SDK for Android
 
 THIS IS A TRIAL VERSION OF VXG PLAYER SDK FOR ANDROID. PLAYBACK IS LIMITED TO 2 MINS.
+
 READ MORE ABOUT VXG PLAYER SDK HERE: https://www.videoexpertsgroup.com/player-sdk/
 
 SDK can be used for IPTV, Android client of surveillance system, IP camera viewer, TV player, OTT clients and other kinds of applications with video playback. Source code of samples can be provided.
