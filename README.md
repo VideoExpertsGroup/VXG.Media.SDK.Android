@@ -1,6 +1,6 @@
 # Media Player SDK for Android
 
-THIS IS A TRIAL VERSION OF VXG PLAYER SDK FOR ANDROID. PLAYBACK IS LIMITED TO 2 MINS.
+THIS IS A TRIAL VERSION OF VXG MEDIA SDK FOR ANDROID. PLAYBACK IS LIMITED TO 2 MINS.
 
 READ MORE ABOUT VXG PLAYER SDK HERE: https://www.videoexpertsgroup.com/player-sdk/
 
@@ -23,10 +23,4 @@ SDK can be used for IPTV, Android client of surveillance system, IP camera viewe
    * Digital zoom and picture shifting
    * Replay for live HLS stream
    
-      
-
-![RTSP player sample1](http://www.videoexpertsgroup.com/git/sample1.png)
-
-      
-
-![RTSP player sample](http://www.videoexpertsgroup.com/git/sample2.png)
+<img src="http://www.videoexpertsgroup.com/git/sample1.png" alt="RTSP Player sample" width="400">
