@@ -25,5 +25,5 @@ BY USING THE SDK, YOU AND THE COMPANY OR ENTITY THAT YOU REPRESENT ("YOU") ARE A
 11.	MISCELLANEOUS.You shall not assign or transfer any part of this Agreement to any third party. This Agreement represents the complete agreement concerning this license between the parties and supersedes all prior agreements and representations between them. If any provision of this Agreement is held to be unenforceable for any reason, such provision shall be reformed only to the extent necessary to make it enforceable. This Agreement shall be governed by and construed under California law. The prevailing party in any action or proceeding to enforce this Agreement will be entitled to costs and attorneys' fees.
 
 VXG Inc.
-35 Lawrence Avenue W., 
-Toronto, Ontario, Canada, M5M 1A3
+56 Temperance St., Suite 700,
+Toronto, ON M5H 3V5
