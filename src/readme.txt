@@ -1,1 +1,0 @@
-Copy libs from ../../libs to libs folder of sample before compiling
