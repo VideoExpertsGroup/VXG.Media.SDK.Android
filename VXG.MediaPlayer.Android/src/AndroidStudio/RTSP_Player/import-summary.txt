@@ -1,0 +1,550 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .idea/
+* .idea/.name
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/encodings.xml
+* .idea/misc.xml
+* .idea/workspace.xml
+* Changelog.txt
+* LICENSE.md
+* README.md
+* app/
+* app/build.gradle
+* app/libs/
+* app/libs/mediaplayersdk.jar
+* app/libs/org.apache.http.legacy.jar
+* app/lint.xml
+* app/src/
+* app/src/main/
+* app/src/main/AndroidManifest.xml
+* app/src/main/java/
+* app/src/main/java/org/
+* app/src/main/java/org/rtspplayer/
+* app/src/main/java/org/rtspplayer/sample/
+* app/src/main/java/org/rtspplayer/sample/activity/
+* app/src/main/java/org/rtspplayer/sample/activity/MainActivity.java
+* app/src/main/java/org/rtspplayer/sample/activity/PreferencesActivity.java
+* app/src/main/java/org/rtspplayer/sample/adapter/
+* app/src/main/java/org/rtspplayer/sample/adapter/CamerasList.java
+* app/src/main/java/org/rtspplayer/sample/adapter/FilesList.java
+* app/src/main/java/org/rtspplayer/sample/adapter/GridAdapter.java
+* app/src/main/java/org/rtspplayer/sample/adapter/StreamsList.java
+* app/src/main/java/org/rtspplayer/sample/data/
+* app/src/main/java/org/rtspplayer/sample/data/CameraItem.java
+* app/src/main/java/org/rtspplayer/sample/data/FileItem.java
+* app/src/main/java/org/rtspplayer/sample/data/GridData.java
+* app/src/main/java/org/rtspplayer/sample/data/StreamItem.java
+* app/src/main/java/org/rtspplayer/sample/database/
+* app/src/main/java/org/rtspplayer/sample/database/ChannelListTable.java
+* app/src/main/java/org/rtspplayer/sample/database/DatabaseHelper.java
+* app/src/main/java/org/rtspplayer/sample/dialog/
+* app/src/main/java/org/rtspplayer/sample/dialog/AddChannelDialog.java
+* app/src/main/java/org/rtspplayer/sample/dialog/AddChannelDialog2.java
+* app/src/main/java/org/rtspplayer/sample/util/
+* app/src/main/java/org/rtspplayer/sample/util/BootReceiver.java
+* app/src/main/java/org/rtspplayer/sample/util/Compress.java
+* app/src/main/java/org/rtspplayer/sample/util/HttpClientFactory.java
+* app/src/main/java/org/rtspplayer/sample/util/IntCheckBoxPreference.java
+* app/src/main/java/org/rtspplayer/sample/util/IntEditTextPreference.java
+* app/src/main/java/org/rtspplayer/sample/util/IntListPreference.java
+* app/src/main/java/org/rtspplayer/sample/util/Logger.java
+* app/src/main/java/org/rtspplayer/sample/util/M3U.java
+* app/src/main/java/org/rtspplayer/sample/util/OnSwipeTouchListener.java
+* app/src/main/java/org/rtspplayer/sample/util/PersistentImage.java
+* app/src/main/java/org/rtspplayer/sample/util/PlayerCallBacks.java
+* app/src/main/java/org/rtspplayer/sample/util/ShadowImage.java
+* app/src/main/java/org/rtspplayer/sample/util/SharedSettings.java
+* app/src/main/java/org/rtspplayer/sample/util/StorageDrives.java
+* app/src/main/java/org/rtspplayer/sample/util/SupportedFormats.java
+* app/src/main/java/org/rtspplayer/sample/util/SystemUiHider.java
+* app/src/main/java/org/rtspplayer/sample/util/SystemUiHiderBase.java
+* app/src/main/java/org/rtspplayer/sample/util/SystemUiHiderHoneycomb.java
+* app/src/main/java/org/rtspplayer/sample/util/ThreadHelper.java
+* app/src/main/java/org/rtspplayer/sample/util/ThreadPool.java
+* app/src/main/jniLibs/
+* app/src/main/jniLibs/armeabi-v7a/
+* app/src/main/jniLibs/armeabi-v7a/libSDL2-armeabi-v7a-noneon.so
+* app/src/main/jniLibs/armeabi-v7a/libSDL2-armeabi-v7a.so
+* app/src/main/jniLibs/armeabi-v7a/librtspplr-armeabi-v7a-noneon.so
+* app/src/main/jniLibs/armeabi-v7a/librtspplr-armeabi-v7a.so
+* app/src/main/jniLibs/armeabi-v7a/librtstm-armeabi-v7a.so
+* app/src/main/jniLibs/armeabi-v7a/libyuv_shared-armeabi-v7a-noneon.so
+* app/src/main/jniLibs/armeabi-v7a/libyuv_shared-armeabi-v7a.so
+* app/src/main/jniLibs/armeabi/
+* app/src/main/jniLibs/armeabi/libSDL2-armeabi.so
+* app/src/main/jniLibs/armeabi/librtspplr-armeabi.so
+* app/src/main/jniLibs/armeabi/librtstm-armeabi.so
+* app/src/main/jniLibs/armeabi/libyuv_shared-armeabi.so
+* app/src/main/jniLibs/x86/
+* app/src/main/jniLibs/x86/libSDL2-x86.so
+* app/src/main/jniLibs/x86/librtspplr-x86.so
+* app/src/main/jniLibs/x86/librtstm-x86.so
+* app/src/main/jniLibs/x86/libyuv_shared-x86.so
+* app/src/main/res/
+* app/src/main/res/color-land/
+* app/src/main/res/color-land/tab_text_color.xml
+* app/src/main/res/color-port/
+* app/src/main/res/color-port/tab_text_color.xml
+* app/src/main/res/drawable-hdpi/
+* app/src/main/res/drawable-hdpi/ab_bottom_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/ab_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/ab_stacked_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/ab_texture_tile_mystyleplayer.png
+* app/src/main/res/drawable-hdpi/ab_transparent_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/app.png
+* app/src/main/res/drawable-hdpi/btn_cab_done_default_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/btn_cab_done_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/btn_cab_done_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/but_close_normal.png
+* app/src/main/res/drawable-hdpi/but_close_pressed.png
+* app/src/main/res/drawable-hdpi/cab_background_bottom_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/cab_background_top_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/list_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/list_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/menu_dropdown_panel_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/player_lock_hdpi.png
+* app/src/main/res/drawable-hdpi/player_lock_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_next_hdpi.png
+* app/src/main/res/drawable-hdpi/player_next_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_pause_hdpi.png
+* app/src/main/res/drawable-hdpi/player_pause_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_play_hdpi.png
+* app/src/main/res/drawable-hdpi/player_play_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_previous_hdpi.png
+* app/src/main/res/drawable-hdpi/player_previous_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_aspect_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_aspect_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_compact_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_compact_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_crop_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_crop_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_full_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_full_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_realsize_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_realsize_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_stretch_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_stretch_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/player_screen_zoom_hdpi.png
+* app/src/main/res/drawable-hdpi/player_screen_zoom_hdpi_scaled.xml
+* app/src/main/res/drawable-hdpi/progress_bg_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/progress_primary_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/progress_secondary_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/spinner_ab_default_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/spinner_ab_disabled_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/spinner_ab_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/spinner_ab_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/tab_selected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/tab_selected_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/tab_selected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/tab_unselected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/tab_unselected_mystyleplayer.9.png
+* app/src/main/res/drawable-hdpi/tab_unselected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-ldpi/
+* app/src/main/res/drawable-ldpi/app.png
+* app/src/main/res/drawable-ldpi/player_lock_ldpi.png
+* app/src/main/res/drawable-ldpi/player_lock_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_next_ldpi.png
+* app/src/main/res/drawable-ldpi/player_next_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_pause_ldpi.png
+* app/src/main/res/drawable-ldpi/player_pause_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_play_ldpi.png
+* app/src/main/res/drawable-ldpi/player_play_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_previous_ldpi.png
+* app/src/main/res/drawable-ldpi/player_previous_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_aspect_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_aspect_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_compact_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_compact_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_crop_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_crop_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_full_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_full_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_realsize_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_realsize_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_stretch_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_stretch_ldpi_scaled.xml
+* app/src/main/res/drawable-ldpi/player_screen_zoom_ldpi.png
+* app/src/main/res/drawable-ldpi/player_screen_zoom_ldpi_scaled.xml
+* app/src/main/res/drawable-mdpi/
+* app/src/main/res/drawable-mdpi/ab_bottom_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/ab_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/ab_stacked_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/ab_texture_tile_mystyleplayer.png
+* app/src/main/res/drawable-mdpi/ab_transparent_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/app.png
+* app/src/main/res/drawable-mdpi/btn_cab_done_default_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/btn_cab_done_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/btn_cab_done_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/but_close_normal.png
+* app/src/main/res/drawable-mdpi/but_close_pressed.png
+* app/src/main/res/drawable-mdpi/cab_background_bottom_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/cab_background_top_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/list_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/list_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/menu_dropdown_panel_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/player_lock_mdpi.png
+* app/src/main/res/drawable-mdpi/player_lock_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_next_mdpi.png
+* app/src/main/res/drawable-mdpi/player_next_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_pause_mdpi.png
+* app/src/main/res/drawable-mdpi/player_pause_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_play_mdpi.png
+* app/src/main/res/drawable-mdpi/player_play_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_previous_mdpi.png
+* app/src/main/res/drawable-mdpi/player_previous_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_aspect_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_aspect_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_compact_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_compact_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_crop_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_crop_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_full_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_full_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_realsize_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_realsize_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_stretch_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_stretch_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/player_screen_zoom_mdpi.png
+* app/src/main/res/drawable-mdpi/player_screen_zoom_mdpi_scaled.xml
+* app/src/main/res/drawable-mdpi/progress_bg_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/progress_primary_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/progress_secondary_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/spinner_ab_default_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/spinner_ab_disabled_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/spinner_ab_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/spinner_ab_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/tab_selected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/tab_selected_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/tab_selected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/tab_unselected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/tab_unselected_mystyleplayer.9.png
+* app/src/main/res/drawable-mdpi/tab_unselected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/
+* app/src/main/res/drawable-xhdpi/ab_bottom_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/ab_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/ab_stacked_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/ab_texture_tile_mystyleplayer.png
+* app/src/main/res/drawable-xhdpi/ab_transparent_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/app.png
+* app/src/main/res/drawable-xhdpi/btn_cab_done_default_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/btn_cab_done_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/btn_cab_done_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/but_close_normal.png
+* app/src/main/res/drawable-xhdpi/but_close_pressed.png
+* app/src/main/res/drawable-xhdpi/cab_background_bottom_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/cab_background_top_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/list_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/list_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/menu_dropdown_panel_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/player_lock_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_lock_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_next_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_next_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_pause_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_pause_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_play_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_play_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_previous_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_previous_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_aspect_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_aspect_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_compact_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_compact_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_crop_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_crop_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_full_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_full_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_realsize_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_realsize_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_stretch_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_stretch_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/player_screen_zoom_xhdpi.png
+* app/src/main/res/drawable-xhdpi/player_screen_zoom_xhdpi_scaled.xml
+* app/src/main/res/drawable-xhdpi/progress_bg_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/progress_primary_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/progress_secondary_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/spinner_ab_default_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/spinner_ab_disabled_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/spinner_ab_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/spinner_ab_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/tab_selected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/tab_selected_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/tab_selected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/tab_unselected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/tab_unselected_mystyleplayer.9.png
+* app/src/main/res/drawable-xhdpi/tab_unselected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/
+* app/src/main/res/drawable-xxhdpi/ab_bottom_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/ab_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/ab_stacked_solid_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/ab_texture_tile_mystyleplayer.png
+* app/src/main/res/drawable-xxhdpi/ab_transparent_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/app.png
+* app/src/main/res/drawable-xxhdpi/btn_cab_done_default_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/btn_cab_done_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/btn_cab_done_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/but_close_normal.png
+* app/src/main/res/drawable-xxhdpi/but_close_pressed.png
+* app/src/main/res/drawable-xxhdpi/cab_background_bottom_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/cab_background_top_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/list_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/list_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/menu_dropdown_panel_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/player_lock_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_lock_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_next_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_next_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_pause_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_pause_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_play_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_play_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_previous_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_previous_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_aspect_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_aspect_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_compact_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_compact_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_crop_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_crop_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_full_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_full_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_realsize_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_realsize_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_stretch_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_stretch_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/player_screen_zoom_xxhdpi.png
+* app/src/main/res/drawable-xxhdpi/player_screen_zoom_xxhdpi_scaled.xml
+* app/src/main/res/drawable-xxhdpi/progress_bg_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/progress_primary_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/progress_secondary_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/spinner_ab_default_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/spinner_ab_disabled_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/spinner_ab_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/spinner_ab_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/tab_selected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/tab_selected_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/tab_selected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/tab_unselected_focused_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/tab_unselected_mystyleplayer.9.png
+* app/src/main/res/drawable-xxhdpi/tab_unselected_pressed_mystyleplayer.9.png
+* app/src/main/res/drawable/
+* app/src/main/res/drawable/ab_background_textured_mystyleplayer.xml
+* app/src/main/res/drawable/action_cameras_refresh.png
+* app/src/main/res/drawable/background_landscape.png
+* app/src/main/res/drawable/blank.png
+* app/src/main/res/drawable/blank_camera.png
+* app/src/main/res/drawable/blank_camera2.png
+* app/src/main/res/drawable/blank_camera2_audio.png
+* app/src/main/res/drawable/btn_cab_done_mystyleplayer.xml
+* app/src/main/res/drawable/button_grid_item_close.xml
+* app/src/main/res/drawable/color_button_background.xml
+* app/src/main/res/drawable/color_lock_button_background.xml
+* app/src/main/res/drawable/ic_menu_archive.png
+* app/src/main/res/drawable/ic_pl_2.png
+* app/src/main/res/drawable/item_row_divider.xml
+* app/src/main/res/drawable/item_row_selector.xml
+* app/src/main/res/drawable/layout_border.xml
+* app/src/main/res/drawable/logo.png
+* app/src/main/res/drawable/menu_play.xml
+* app/src/main/res/drawable/menu_stop.xml
+* app/src/main/res/drawable/min.png
+* app/src/main/res/drawable/modify.png
+* app/src/main/res/drawable/my_overflow_image.png
+* app/src/main/res/drawable/pl.png
+* app/src/main/res/drawable/pl_2.png
+* app/src/main/res/drawable/pl_3.png
+* app/src/main/res/drawable/preview_lefttop.png
+* app/src/main/res/drawable/preview_lefttop_32.png
+* app/src/main/res/drawable/preview_rightbottom.png
+* app/src/main/res/drawable/preview_rightbottom_32.png
+* app/src/main/res/drawable/progress_horizontal_mystyleplayer.xml
+* app/src/main/res/drawable/selectable_background_mystyleplayer.xml
+* app/src/main/res/drawable/semitransparent.png
+* app/src/main/res/drawable/spinner_background_ab_mystyleplayer.xml
+* app/src/main/res/drawable/status_disconnected.png
+* app/src/main/res/drawable/status_disconnected_audio.png
+* app/src/main/res/drawable/status_disconnected_scaled.xml
+* app/src/main/res/drawable/tab_indicator_ab_mystyleplayer.xml
+* app/src/main/res/drawable/transparent_2x2.png
+* app/src/main/res/layout-large-land-hdpi/
+* app/src/main/res/layout-large-land-hdpi/activity_main.xml
+* app/src/main/res/layout-large-land-hdpi/player_control_large_land_hdpi.xml
+* app/src/main/res/layout-large-land-mdpi/
+* app/src/main/res/layout-large-land-mdpi/activity_main.xml
+* app/src/main/res/layout-large-land-mdpi/player_control_large_land_mdpi.xml
+* app/src/main/res/layout-large-land-xhdpi/
+* app/src/main/res/layout-large-land-xhdpi/activity_main.xml
+* app/src/main/res/layout-large-land-xhdpi/player_control_large_land_xhdpi.xml
+* app/src/main/res/layout-large-port-hdpi/
+* app/src/main/res/layout-large-port-hdpi/activity_main.xml
+* app/src/main/res/layout-large-port-hdpi/player_control_large_port_hdpi.xml
+* app/src/main/res/layout-large-port-mdpi/
+* app/src/main/res/layout-large-port-mdpi/activity_main.xml
+* app/src/main/res/layout-large-port-mdpi/player_control_large_port_mdpi.xml
+* app/src/main/res/layout-large-port-xhdpi/
+* app/src/main/res/layout-large-port-xhdpi/activity_main.xml
+* app/src/main/res/layout-large-port-xhdpi/player_control_large_port_xhdpi.xml
+* app/src/main/res/layout-normal-land-hdpi/
+* app/src/main/res/layout-normal-land-hdpi/activity_main.xml
+* app/src/main/res/layout-normal-land-hdpi/player_control_normal_land_hdpi.xml
+* app/src/main/res/layout-normal-land-ldpi/
+* app/src/main/res/layout-normal-land-ldpi/activity_main.xml
+* app/src/main/res/layout-normal-land-ldpi/player_control_normal_land_ldpi.xml
+* app/src/main/res/layout-normal-land-mdpi/
+* app/src/main/res/layout-normal-land-mdpi/activity_main.xml
+* app/src/main/res/layout-normal-land-mdpi/player_control_normal_land_mdpi.xml
+* app/src/main/res/layout-normal-land-xhdpi/
+* app/src/main/res/layout-normal-land-xhdpi/activity_main.xml
+* app/src/main/res/layout-normal-land-xhdpi/player_control_normal_land_xhdpi.xml
+* app/src/main/res/layout-normal-land-xxhdpi/
+* app/src/main/res/layout-normal-land-xxhdpi/activity_main.xml
+* app/src/main/res/layout-normal-land-xxhdpi/player_control_normal_land_xxhdpi.xml
+* app/src/main/res/layout-normal-port-hdpi/
+* app/src/main/res/layout-normal-port-hdpi/activity_main.xml
+* app/src/main/res/layout-normal-port-hdpi/player_control_normal_port_hdpi.xml
+* app/src/main/res/layout-normal-port-ldpi/
+* app/src/main/res/layout-normal-port-ldpi/activity_main.xml
+* app/src/main/res/layout-normal-port-ldpi/player_control_normal_port_ldpi.xml
+* app/src/main/res/layout-normal-port-mdpi/
+* app/src/main/res/layout-normal-port-mdpi/activity_main.xml
+* app/src/main/res/layout-normal-port-mdpi/player_control_normal_port_mdpi.xml
+* app/src/main/res/layout-normal-port-xhdpi/
+* app/src/main/res/layout-normal-port-xhdpi/activity_main.xml
+* app/src/main/res/layout-normal-port-xhdpi/player_control_normal_port_xhdpi.xml
+* app/src/main/res/layout-normal-port-xxhdpi/
+* app/src/main/res/layout-normal-port-xxhdpi/activity_main.xml
+* app/src/main/res/layout-normal-port-xxhdpi/player_control_normal_port_xxhdpi.xml
+* app/src/main/res/layout-small-land-ldpi/
+* app/src/main/res/layout-small-land-ldpi/activity_main.xml
+* app/src/main/res/layout-small-land-ldpi/player_control_small_land_ldpi.xml
+* app/src/main/res/layout-small-port-ldpi/
+* app/src/main/res/layout-small-port-ldpi/activity_main.xml
+* app/src/main/res/layout-small-port-ldpi/player_control_small_port_ldpi.xml
+* app/src/main/res/layout-xlarge-land-mdpi/
+* app/src/main/res/layout-xlarge-land-mdpi/activity_main.xml
+* app/src/main/res/layout-xlarge-land-mdpi/player_control_xlarge_land_mdpi.xml
+* app/src/main/res/layout-xlarge-land/
+* app/src/main/res/layout-xlarge-land/activity_main.xml
+* app/src/main/res/layout-xlarge-land/player_control_xlarge_land.xml
+* app/src/main/res/layout-xlarge-port-mdpi/
+* app/src/main/res/layout-xlarge-port-mdpi/activity_main.xml
+* app/src/main/res/layout-xlarge-port-mdpi/player_control_xlarge_port_mdpi.xml
+* app/src/main/res/layout-xlarge-port/
+* app/src/main/res/layout-xlarge-port/activity_main.xml
+* app/src/main/res/layout-xlarge-port/player_control_xlarge_port.xml
+* app/src/main/res/layout/
+* app/src/main/res/layout/cameras2x2con.xml
+* app/src/main/res/layout/dialog.xml
+* app/src/main/res/layout/dialog_no_preview.xml
+* app/src/main/res/layout/item_row_doc.xml
+* app/src/main/res/layout/player_control.xml
+* app/src/main/res/layout/player_locked.xml
+* app/src/main/res/layout/playersnames.xml
+* app/src/main/res/menu/
+* app/src/main/res/menu/actions.xml
+* app/src/main/res/menu/main.xml
+* app/src/main/res/values-large-hdpi/
+* app/src/main/res/values-large-hdpi/dimens.xml
+* app/src/main/res/values-large-mdpi/
+* app/src/main/res/values-large-mdpi/dimens.xml
+* app/src/main/res/values-normal-hdpi/
+* app/src/main/res/values-normal-hdpi/dimens.xml
+* app/src/main/res/values-normal-ldpi/
+* app/src/main/res/values-normal-ldpi/dimens.xml
+* app/src/main/res/values-normal-mdpi/
+* app/src/main/res/values-normal-mdpi/dimens.xml
+* app/src/main/res/values-normal-xhdpi/
+* app/src/main/res/values-normal-xhdpi/dimens.xml
+* app/src/main/res/values-normal-xxhdpi/
+* app/src/main/res/values-normal-xxhdpi/dimens.xml
+* app/src/main/res/values-small-ldpi/
+* app/src/main/res/values-small-ldpi/dimens.xml
+* app/src/main/res/values-v11/
+* app/src/main/res/values-v11/styles.xml
+* app/src/main/res/values-v14/
+* app/src/main/res/values-v14/styles.xml
+* app/src/main/res/values-w820dp/
+* app/src/main/res/values-w820dp/dimens.xml
+* app/src/main/res/values/
+* app/src/main/res/values/arrays.xml
+* app/src/main/res/values/colors.xml
+* app/src/main/res/values/dimens.xml
+* app/src/main/res/values/strings.xml
+* app/src/main/res/values/styles.xml
+* app/src/main/res/values/styles_mystyleplayer.xml
+* app/src/main/res/xml/
+* app/src/main/res/xml/preferences.xml
+* build.gradle
+* gradle/
+* gradle/wrapper/
+* gradle/wrapper/gradle-wrapper.jar
+* gradle/wrapper/gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* ic_launcher-web.png
+* proguard-project.txt
+* settings.gradle
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:19.1.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* libs/armeabi-v7a/libSDL2-armeabi-v7a-noneon.so => app/src/main/jniLibs/armeabi-v7a/libSDL2-armeabi-v7a-noneon.so
+* libs/armeabi-v7a/libSDL2-armeabi-v7a.so => app/src/main/jniLibs/armeabi-v7a/libSDL2-armeabi-v7a.so
+* libs/armeabi-v7a/librtspplr-armeabi-v7a-noneon.so => app/src/main/jniLibs/armeabi-v7a/librtspplr-armeabi-v7a-noneon.so
+* libs/armeabi-v7a/librtspplr-armeabi-v7a.so => app/src/main/jniLibs/armeabi-v7a/librtspplr-armeabi-v7a.so
+* libs/armeabi-v7a/librtstm-armeabi-v7a.so => app/src/main/jniLibs/armeabi-v7a/librtstm-armeabi-v7a.so
+* libs/armeabi-v7a/libyuv_shared-armeabi-v7a-noneon.so => app/src/main/jniLibs/armeabi-v7a/libyuv_shared-armeabi-v7a-noneon.so
+* libs/armeabi-v7a/libyuv_shared-armeabi-v7a.so => app/src/main/jniLibs/armeabi-v7a/libyuv_shared-armeabi-v7a.so
+* libs/armeabi/libSDL2-armeabi.so => app/src/main/jniLibs/armeabi/libSDL2-armeabi.so
+* libs/armeabi/librtspplr-armeabi.so => app/src/main/jniLibs/armeabi/librtspplr-armeabi.so
+* libs/armeabi/librtstm-armeabi.so => app/src/main/jniLibs/armeabi/librtstm-armeabi.so
+* libs/armeabi/libyuv_shared-armeabi.so => app/src/main/jniLibs/armeabi/libyuv_shared-armeabi.so
+* libs/mediaplayersdk.jar => app/libs/mediaplayersdk.jar
+* libs/org.apache.http.legacy.jar => app/libs/org.apache.http.legacy.jar
+* libs/x86/libSDL2-x86.so => app/src/main/jniLibs/x86/libSDL2-x86.so
+* libs/x86/librtspplr-x86.so => app/src/main/jniLibs/x86/librtspplr-x86.so
+* libs/x86/librtstm-x86.so => app/src/main/jniLibs/x86/librtstm-x86.so
+* libs/x86/libyuv_shared-x86.so => app/src/main/jniLibs/x86/libyuv_shared-x86.so
+* lint.xml => app/lint.xml
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

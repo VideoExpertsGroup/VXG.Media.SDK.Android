@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/playerViewLayout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	>
+
+	<RelativeLayout
+	    android:id="@+id/playerViewRelativeLayout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+	
+	   <veg.mediaplayer.sdk.MediaPlayer
+	        android:id="@+id/playerView"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="center"
+	   />
+	    
+	    <TextView
+	        android:id="@+id/playerHwStatus"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:textAppearance="?android:attr/textAppearanceLarge" 
+	    />
+	
+	</RelativeLayout>
+  
+	<RelativeLayout
+	    android:id="@+id/playerStatus"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+	
+	    <TextView
+	        android:id="@+id/playerStatusText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:gravity="center"
+	        android:textAppearance="?android:attr/textAppearanceLarge" 
+	    />
+	
+	</RelativeLayout>
+     
+</FrameLayout>

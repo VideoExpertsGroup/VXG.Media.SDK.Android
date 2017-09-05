@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/settingsServer" >
+<!--         <EditTextPreference
+            android:defaultValue="52.89.212.138"
+            android:key="urlipport"
+            android:summary="@string/settingsStreaming_urlipport_summary"
+            android:title="@string/settingsStreaming_urlipport_title" />
+ -->
+          <ListPreference
+            android:entries="@array/serverTypeArray"
+            android:entryValues="@array/serverTypeValues"
+            android:defaultValue="2"
+            android:key="serverType"
+            android:summary="@string/settingsStreaming_server_type_summary"
+            android:title="@string/settingsStreaming_server_type_title" />
+
+ 
+         <EditTextPreference
+            android:defaultValue="demo"
+            android:key="login"
+            android:summary="@string/settingsStreaming_login_summary"
+            android:title="@string/settingsStreaming_login_title" />
+         
+        <EditTextPreference
+            android:defaultValue="0"
+            android:key="urlch"
+            android:summary="@string/settingsStreaming_urlch_summary"
+            android:title="@string/settingsStreaming_urlch_title" />
+        
+        <EditTextPreference
+            android:defaultValue="5540"
+            android:key="urlport"
+            android:summary="@string/settingsStreaming_urlport_summary"
+            android:title="@string/settingsStreaming_urlport_title" />
+        
+<!--         <EditTextPreference
+            android:defaultValue="0000"
+            android:key="urlpasscode"
+            android:summary="@string/settingsStreaming_urlpasscode_summary"
+            android:title="@string/settingsStreaming_urlpasscode_title" />
+ -->        
+<!--         <EditTextPreference
+            android:defaultValue="rtmp://54.173.34.172:1937/publish_demo/"
+            android:key="urlrtmp"
+            android:summary="@string/settingsStreaming_urlrtmp_summary"
+            android:title="@string/settingsStreaming_urlrtmp_title" />
+ -->     </PreferenceCategory> 
+     
+      <PreferenceCategory android:title="@string/settingsRecord" >
+          
+          <ListPreference
+            android:entries="@array/videoResArray"
+            android:entryValues="@array/videoResValues"
+            android:defaultValue="640"
+            android:key="videoRes"
+            android:summary="@string/settingsRecord_videoRes_summary"
+            android:title="@string/settingsRecord_videoRes_title" />
+          
+         <ListPreference
+            android:entries="@array/videoHRVBitrateArray"
+            android:entryValues="@array/videoHRVBitrateValues"
+            android:defaultValue="700"
+            android:key="HRVbitrate"
+            android:summary="@string/settingsRecord_HRVbitrate_summary"
+            android:title="@string/settingsRecord_HRVbitrate_title" />
+            
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="audio_enable"
+            android:summary="@string/settingsRecord_audioEnable_summary"
+            android:title="@string/settingsRecord_audioEnable_title" />
+
+          <CheckBoxPreference
+              android:defaultValue="false"
+              android:key="capture_screen"
+              android:summary=""
+              android:title="Capture Display instead of Camera" />
+
+        <ListPreference
+            android:entries="@array/audioBitrateArray"
+            android:entryValues="@array/audioBitrateValues"
+            android:defaultValue="64"
+            android:key="audio_bitrate"
+            android:summary="@string/settingsRecord_audioBitrate_summary"
+            android:title="@string/settingsRecord_audioBitrate_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="secvideo_enable"
+            android:summary="@string/settingsRecord_secvideo_enable_summary"
+            android:title="@string/settingsRecord_secvideo_enable_title" />
+        
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="record_enable"
+            android:summary="@string/settingsRecord_enable_summary"
+            android:title="@string/settingsRecord_enable_title" />
+
+<!--         <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="transcode_enable"
+            android:summary="@string/settingsTranscode_enable_summary"
+            android:title="@string/settingsTranscode_enable_title" />
+ -->        
+     </PreferenceCategory> 
+     
+     <PreferenceCategory android:title="@string/settingsCommon" >
+            <PreferenceScreen
+            android:defaultValue="true"
+            android:key="common_set"
+            android:summary="@string/settingsCommon_set_summary"
+            android:title="@string/settingsCommon_set_title" >
+            
+            </PreferenceScreen>
+     </PreferenceCategory> 
+         
+        
+</PreferenceScreen>

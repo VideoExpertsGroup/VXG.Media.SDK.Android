@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+       <FrameLayout
+            android:id="@+id/playerViewLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.04" >
+            
+           <ImageView
+			    android:layout_margin="10dp"
+		        android:id="@+id/led"
+		        android:layout_width="35dp"
+		        android:layout_height="35dp"
+		        android:layout_gravity="center_vertical"
+		        android:src="@drawable/led_green" />
+
+	        <RelativeLayout
+	            android:id="@+id/playerViewRelativeLayout"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent" >
+	
+	           <veg.mediaplayer.sdk.MediaPlayer
+	                android:id="@+id/playerView"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_gravity="center"
+	                android:layout_weight="1.04" />
+	            
+	            <TextView
+	                android:id="@+id/playerHwStatus"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentRight="true"
+	                android:layout_alignParentTop="true"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	        </RelativeLayout>
+	        
+	        <RelativeLayout
+	            android:id="@+id/playerStatus"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent" >
+	
+	            <TextView
+	                android:id="@+id/playerStatusText"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerInParent="true"
+	                android:gravity="center"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	        </RelativeLayout>
+            
+       </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edit_ipaddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="0.9"
+                    android:ems="10"
+                    android:maxWidth="420dp"
+                    android:minWidth="150dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/button_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Urls"
+                    style="?android:attr/buttonStyleSmall"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                
+                <Button
+                    android:id="@+id/button_shot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Shot"
+                    style="?android:attr/buttonStyleSmall"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+            <LinearLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal" >
+                
+                <Button
+                	android:id="@+id/button_record"
+                	android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:layout_gravity="left"
+                	android:text="Start Record"
+                	style="?android:attr/buttonStyleSmall"
+                	android:textAppearance="?android:attr/textAppearanceSmall" />
+                
+            	<Button
+               		android:id="@+id/button_connect"
+                	android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:layout_gravity="center"
+                	android:text="Connect"
+                	style="?android:attr/buttonStyleSmall"
+                	android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+            
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Media Streamer (Demo)</string>
+    <string name="app_short_name">Media Streamer (Demo)</string>
+
+
+    <string name="menu_settings">Settings</string>
+    <string name="menu_exit">Exit</string>
+    
+    <string name="settings_activity_title">Settings</string>
+
+    <string name="settingsGeneral">General</string>
+    <string name="settingsServer">Server settings</string>
+    <string name="settingsServer_login_summary">login</string>
+    <string name="settingsServer_login_title">login</string>
+    <string name="settingsServer_password_summary"></string>
+    <string name="settingsServer_password_title">password</string>
+    <string name="settingsServer_password_show">show password</string>
+    <string name="settingsServer_done">Done</string>
+    <string name="settingsServer_urlauth_summary">auth server URL</string>
+    <string name="settingsServer_urlauth_title">auth server URL</string>
+    <string name="settingsServer_urlapi_summary">upload api URL</string>
+    <string name="settingsServer_urlapi_title">upload api URL</string>
+    <string name="settingsServer_urlfiles_summary">upload location URL</string>
+    <string name="settingsServer_urlfiles_title">upload location URL</string>
+    <string name="settingsServer_connect_timeout_summary">""</string>
+    <string name="settingsServer_connect_timeout_title">connect timeout (seconds)</string>
+    <string name="settingsServer_enable_upload_summary">""</string>
+    <string name="settingsServer_enable_upload_title">enable upload</string>
+    <string name="settingsServer_remove_files_summary">""</string>
+    <string name="settingsServer_remove_files_title">remove files after upload</string>
+
+    <string name="settingsRecord">Streaming settings</string>
+    <string name="settingsRecord_enable_title">Record (mp4)</string>
+    <string name="settingsRecord_enable_summary">"RTMP mode only"</string>
+
+    <string name="settingsRecord_HRVbitrate_title">Video bitrate (kbps)</string>
+    <string name="settingsRecord_HRVbitrate_summary">""</string>
+    
+    <string name="settingsRecord_videoRes_title">Video resolution</string>
+    <string name="settingsRecord_videoRes_summary">""</string>
+    
+    <string name="settingsRecord_secvideo_enable_title">"Secondary Video (/ch1)"</string>
+    <string name="settingsRecord_secvideo_enable_summary">RTSP mode only</string>
+    
+    <string name="settingsRecord_LRVbitrate_title">Video bitrate (kbps)</string>
+    <string name="settingsRecord_LRVbitrate_summary">""</string>
+    
+    <string name="settingsRecord_IMGquality_summary">""</string>
+    <string name="settingsRecord_IMGquality_title">img quality (0 to 100)</string>
+    <string name="settingsRecord_LRVDuration_summary">""</string>
+    <string name="settingsRecord_LRVDuration_title">chunk duration (seconds) min 10, max 1200</string>
+
+    <string name="settingsRecord_audioEnable_summary">""</string>
+    <string name="settingsRecord_audioEnable_title">"enable audio"</string>
+    <string name="settingsRecord_audioBitrate_summary">""</string>
+    <string name="settingsRecord_audioBitrate_title">audio bitrate (kbps)</string>
+    <string name="settingsRecord_audioChannel_summary">""</string>
+    <string name="settingsRecord_audioChannel_title">audio channels (stereo/mono)</string>
+    <string name="settingsRecord_audioSampling_summary">""</string>
+    <string name="settingsRecord_audioSampling_title">audio sampling rate (kHz)</string>
+    <string name="item_thumb">item_thumb</string>
+
+    <string name="settingsStorage">Storage settings</string>
+    <string name="settingsStorage_enable_summary_summary">enables storage statistics on preview window</string>
+    <string name="settingsStorage_enable_summary_title">show summary</string>
+    <string name="settingsStorage_remove_importsrc_summary">removes the origin file has been imported</string>
+    <string name="settingsStorage_remove_importsrc_title">remove imported source files</string>
+    <string name="settingsStorage_allow_space_summary"></string>
+    <string name="settingsStorage_allow_space_title">move clips to trash threshold (10 to 100%)</string>
+    <string name="settingsStorage_disable_upload_img_summary"></string>
+    <string name="settingsStorage_disable_upload_img_title">disable img upload</string>
+    
+    <string name="settingsStorage_storage_quota_summary"></string>
+    <string name="settingsStorage_storage_quota_title">storage quota</string>
+    <string name="settingsStorage_storage_quota_enable_summary"></string>
+    <string name="settingsStorage_storage_quota_enable_title">enable storage quota</string>
+    <string name="settingsStorage_storage_quota_time_summary"></string>
+    <string name="settingsStorage_storage_quota_time_title">time threshold value (HH:MM)</string>
+    <string name="settingsStorage_storage_quota_size_summary"></string>
+    <string name="settingsStorage_storage_quota_size_title">size threshold value (in Megabytes)</string>
+    
+    <string name="settingsStreaming">Streaming settings</string>
+    <string name="settingsStreaming_enable_rtmp_summary">start lrv streaming to RTMP server while recording on</string>
+    <string name="settingsStreaming_enable_rtmp_title">enable RTMP</string>
+    <string name="settingsStreaming_urlrtmp_summary"></string>
+    <string name="settingsStreaming_urlrtmp_title">RTMP server address</string>
+    <string name="settingsStreaming_urlipport_summary"></string>
+    <string name="settingsStreaming_urlipport_title">RTMP server ip:port</string>
+    <string name="settingsStreaming_urlch_summary"></string>
+    <string name="settingsStreaming_urlch_title">Channel</string>
+    <string name="settingsStreaming_urlpasscode_summary"></string>
+    <string name="settingsStreaming_urlport_summary"></string>
+    <string name="settingsStreaming_urlport_title">RTSP server Port</string>
+    <string name="settingsStreaming_urlpasscode_title">pass_code</string>
+    <string name="settingsStreaming_login_summary">login</string>
+    <string name="settingsStreaming_login_title">login</string>
+    <string name="settingsStreaming_server_type_summary">Network server type</string>
+    <string name="settingsStreaming_server_type_title">Network server type</string>
+    
+    
+    <string name="settingsCommon">Defaults</string>
+    <string name="settingsCommon_set_summary">reset to default settings</string>
+    <string name="settingsCommon_set_title">reset to defaults</string>
+    <string name="settingsCommon_server_summary"></string>
+    <string name="settingsCommon_server_title">reset server parameters</string>
+    <string name="settingsCommon_storage_summary"></string>
+    <string name="settingsCommon_storage_title">reset storage parameters</string>
+    <string name="settingsCommon_record_summary"></string>
+    <string name="settingsCommon_record_title">reset record parameters</string>
+    <string name="settingsCommon_streaming_summary"></string>
+    <string name="settingsCommon_streaming_title">reset streaming parameters</string>
+    
+    <string name="settingsTranscode_enable_title">enable argb raw data</string>
+    <string name="settingsTranscode_enable_summary">""</string>
+    
+</resources>

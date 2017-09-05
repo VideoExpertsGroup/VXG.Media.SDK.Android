@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="serverTypeArray">
+        <item>Publish RTMP</item>
+        <item>RTSP </item>
+    </string-array>
+
+    <string-array name="serverTypeValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- BITRATE -->
+    <string-array name="videoHRVBitrateArray">
+        <item>30000 kbps</item>
+        <item>20000 kbps</item>
+        <item>10000 kbps</item>
+        <item>5000 kbps</item>
+        <item>3000 kbps</item>
+        <item>1000 kbps</item>
+        <item>700 kbps</item>
+        <item>500 kbps</item>
+        <item>375 kbps</item>
+    </string-array>
+
+    <string-array name="videoHRVBitrateValues">
+        <item>30000</item>
+        <item>20000</item>
+        <item>10000</item>
+        <item>5000</item>
+        <item>3000</item>
+        <item>1000</item>
+        <item>700</item>
+        <item>500</item>
+        <item>375</item>
+    </string-array>
+
+    <string-array name="videoLRVBitrateArray">
+        <item>5000 kbps</item>
+        <item>3000 kbps</item>
+        <item>1000 kbps</item>
+        <item>700 kbps</item>
+        <item>500 kbps</item>
+        <item>375 kbps</item>
+    </string-array>
+
+    <string-array name="videoLRVBitrateValues">
+        <item>5000</item>
+        <item>3000</item>
+        <item>1000</item>
+        <item>700</item>
+        <item>500</item>
+        <item>375</item>
+    </string-array>
+
+    <string-array name="videoResArray">
+        <item>3840x2160</item>
+        <item>1920x1080</item>
+        <item>1280x720</item>
+        <item>720x576</item>
+        <item>720x480</item>
+        <item>640x480</item>
+        <item>352x280</item>
+        <item>320x240</item>
+        <item>176x144</item>
+        </string-array>
+
+    <string-array name="videoResValues">
+        <item>3840</item>
+        <item>1920</item>
+        <item>1280</item>
+        <item>721</item>
+        <item>720</item>
+        <item>640</item>
+        <item>352</item>
+        <item>320</item>
+        <item>176</item>
+    </string-array>
+    
+    <string-array name="IMGQualityArray">
+        <item>Low (40)</item>
+        <item>Medium (70)</item>
+        <item>High (100)</item>
+    </string-array>
+
+    <string-array name="IMGQualityValues">
+        <item>40</item>
+        <item>70</item>
+        <item>100</item>
+    </string-array>
+
+    <string-array name="audioBitrateArray">
+        <item>320 kbps</item>
+        <item>256 kbps</item>
+        <item>192 kbps</item>
+        <item>128 kbps</item>
+        <item>96 kbps</item>
+        <item>64 kbps</item>
+        <item>40 kbps</item>
+     </string-array>
+    
+    <string-array name="audioBitrateValues">
+        <item>320</item>
+        <item>256</item>
+        <item>192</item>
+        <item>128</item>
+        <item>96</item>
+        <item>64</item>
+        <item>40</item>
+     </string-array>
+
+     <string-array name="audioChannelArray">
+    	<item>Stereo (2)</item>
+    	<item>Mono (1)</item>
+     </string-array>
+    
+     <string-array name="audioChannelValues">
+         <item>2</item>
+         <item>1</item>
+     </string-array>
+     
+     <string-array name="audioSamplingArray">
+        <item>48 kHz</item>
+        <item>44.1 kHz</item>
+        <item>32 kHz</item>
+        <item>16 kHz</item>
+     </string-array>
+    
+    <string-array name="audioSamplingValues">
+        <item>48000</item>
+        <item>44100</item>
+        <item>32000</item>
+        <item>16000</item>
+     </string-array>
+     
+</resources>

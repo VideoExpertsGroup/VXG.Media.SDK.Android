@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <veg.mediaplayer.sdk.MediaPlayer
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        />
+
+   <ImageView
+        android:id="@+id/pauseIndicator"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="@drawable/pause_indicator"
+        android:contentDescription="@string/pause_content_description"
+        android:visibility="gone"
+        />
+</FrameLayout>
+
+
