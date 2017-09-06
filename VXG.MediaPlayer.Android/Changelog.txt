@@ -10,8 +10,8 @@ Mobile Video Playback SDK Features :
 - Stream playback : Multicast/Unicast UDP, HTTP and HTTPS tunnneling for RTSP
 - Supported file formats : AVI, 3GP, M4V, MP4, WMV, FLV, MPEG, MPG, MOV, RM, VOB, ASF, MKV, F4V, TRP, TS, TP and so on
 - Supported Network protocols : HTTP-HLS, RTSP, RTP, UDP (Multicast stream support), RTMP, MMS and so on
-- Smart and online thumbnails – quick and simple API to get a thumbnail for local files and network streams
-- Low latency for network stream – special API to control playback latency
+- Smart and online thumbnails â€“ quick and simple API to get a thumbnail for local files and network streams
+- Low latency for network stream â€“ special API to control playback latency
 
 SDK can be used in IPTV, Android clien of Surevelene system , IP camera viewers , TV player and other kind of applications with video playback.
 Source code of samples can be provided. 
@@ -20,7 +20,7 @@ Source code of samples can be provided.
 ----------------
 Changes log
 ----------------
-Version 5.77.20170817 (Get video whole or cropped frame after decoder easely)
+Version 5.77.20170826 (Get video whole or cropped frame after decoder easely)
 ----------------
 - Added bew feature : 
 	Receive video frames from video source or video renderer
