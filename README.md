@@ -1,8 +1,10 @@
 # VXG Media SDK for Android
 
-THIS IS A TRIAL VERSION OF VXG MEDIA SDK FOR ANDROID. PLAYBACK IS LIMITED TO 2 MINS.
-READ MORE ABOUT VXG SDK HERE: https://www.videoexpertsgroup.com/player-sdk/
+## Disclaimer
+This is a non-commercial version of VXG Media SDK for Android. Playback is limited to 2 mins.
+Commercial use and access to extra features requires a license. Please learn more at https://www.videoexpertsgroup.com/player-sdk/
 
+## About SDK
 SDK consists of two modules:
 - Media Player - for playback of media files and streams
 - Media Encoder - for live video broadcasting from mobile device
@@ -11,6 +13,7 @@ Player module can be used for IPTV, Android client of surveillance system, IP ca
 Encoding module can be used for any kind of mobile video broadcasting: home surveillance, social networks, etc.
 Source code of samples can be provided.
 
+## Features
    Media Player Features:
    * Hardware acceleration – Hardware accelerated decoding of HD video (H.264, MPEG4, MPEG2 and others).
    * Multi-core decoding – Support of decoding for Multi-core architecture.
@@ -39,5 +42,6 @@ Source code of samples can be provided.
    * RTSP tunneling over HTTPS, HTTP
    * Capturing raw video up to 30 FPS
    * Capturing raw audio (PCM format)
-   
+
+## Demo screenshots
 <img src="http://www.videoexpertsgroup.com/git/sample1.png" alt="RTSP Player sample" width="400">
