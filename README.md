@@ -13,25 +13,42 @@ Player module can be used for IPTV, Android client of surveillance system, IP ca
 Encoding module can be used for any kind of mobile video broadcasting: home surveillance, social networks, etc.
 Source code of samples can be provided.
 
-## Features
-   Media Player Features:
-   * Hardware acceleration – Hardware accelerated decoding of HD video (H.264, MPEG4, MPEG2 and others).
-   * Multi-core decoding – Support of decoding for Multi-core architecture.
-   * Multi-channel support – Support of simultaneous connection to several video sources.
-   * Integration with active apps – Mobile Video Playback SDK is based on SurfaceView and can be integrated with any activity.
-   * H/W post and pre-processing – Hardware de-interlacing and pre-processing using OpenGL shaders.
-   * Custom and standard notifications – The network module notifies application about connection, disconnection and other events. There is a possibility to add custom event.
-   * Preview mode.
-   * Stream playback: Multicast/Unicast UDP, HTTP and HTTPS tunneling for RTSP.
-   * Supported file formats: AVI, 3GP, M4V, MP4, WMV, FLV, MPEG, MPG, MOV, RM, VOB, ASF, MKV, F4V, TRP, TS, TP and others.
-   * Supported Network protocols: HTTP-HLS, RTSP, RTP, UDP (Multicast stream support), RTMP, MMS and others.
-   * Smart online thumbnails – Quick and simple API gets thumbnails for local files and network streams.
-   * Low latency for network streams – Special API controls playback latency.
-   * Recording from live camera and file trimming
-   * Digital zoom and picture shifting
-   * Replay for live HLS stream
+## Media Player
+   Main features:
+   * **Low latency for network streams** – Special API controls playback latency and buffering in every module.
+   * **Multi-channel support** – Support of simultaneous connection to several video sources.
+   * **Getting raw video frames** (whole or cropped) after decoder for computer vision handler (include Face detector sample).
+   * **Hardware acceleration** – Hardware accelerated decoding of HD video (H.264, H.265, MPEG4, MPEG2 and others).
+   * **H/W post and pre-processing** – Hardware de-interlacing and pre-processing using OpenGL shaders.
+   * **Smart OpenGL rendering** - Digital zoom and picture shifting.
+   * **Fast and Low rate playback** - Support of 0.1x-16x speed rate for files and 0.1x-3x for live streams
+   * **Smooth change position** - Support of quick position change with audio fade in a short time
+   * **Record during Playback** - Support of record from live video source to mp4 file compatible with all social networks
+   * **Real time statistics** - Statistics are calculated in real time: bitrate, latency in video and audio flow, number of frames in video flow 
+   * **Trimming** - Support of cutting local files on several segments 
    
-   Media Encoder Features:
+   Additional features:
+   * **Smart thumbnails** – Quick and simple API gets thumbnails for local files and live streams.
+   * **Replay** - Support of position change in live HLS streams
+   * **Audio filtering** - Support of volume boost, tempo, notch
+   * **ONVIF** - Support of ONVIF protocol (it is provided on demand) 
+   
+   Supported file formats and network protocols:
+   * Supported file formats: AVI, 3GP, M4V, MP4, WMV, FLV, MPEG, MPG, MOV, RM, VOB, ASF, MKV, F4V, TRP, TS, TP and others.
+   * Supported Network protocols: HLS, HTTP, RTMPT, RTMPE, HTTTPS, RTMPTS, MMS, RTMP, RTP, SRTP, UDP, HLS, RTSP and others.
+   * Support of Multicast, Unicast and Broadcast
+   * Stream playback: Multicast/Unicast UDP, HTTP and HTTPS tunneling for RTSP.
+   
+   Supported subtitles:
+   * DVD subtitles (codec dvd_subtitle), Closed Caption (EIA-608 / CEA-708) Decoder (codec eia_608), PJS subtitle, RealText subtitle, SSA (SubStation Alpha) subtitle, SubRip subtitle, Raw text subtitle, WebVTT subtitle
+
+   Quick Integration and simple using:   
+   * Integration with active apps – Media Player SDK is based on SurfaceView and can be integrated with any activity.
+   * Custom and standard notifications – The network module notifies application about connection, disconnection and other events. There is a possibility to add custom event.
+
+
+## Media Encoder
+   Main Features:
    * RTSP server (in local network) / RTMP in public network
    * H.264 encoding up to 4K resolution  
    * Simultaneous recording and broadcasting
