@@ -61,4 +61,4 @@ Source code of samples can be provided.
    * Capturing raw audio (PCM format)
 
 ## Demo screenshots
-<img src="http://www.videoexpertsgroup.com/git/sample1.png" alt="RTSP Player sample" width="400">
+<img src="http://www.videoexpertsgroup.com/git/nexus_rtsp.png" alt="RTSP Player sample" width="400">
