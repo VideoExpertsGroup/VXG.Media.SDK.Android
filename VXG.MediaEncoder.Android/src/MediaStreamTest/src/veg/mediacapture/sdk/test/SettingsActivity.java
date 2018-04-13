@@ -1,10 +1,3 @@
-/*
- *
- * Copyright (c) 2010-2014 EVE GROUP PTE. LTD.
- *
- */
-
-
 package veg.mediacapture.sdk.test;
 
 import java.util.ArrayList;
@@ -172,8 +165,8 @@ public class SettingsActivity extends PreferenceActivity {
 		streaming_login.setEnabled(isenabled);
 		streaming_urlch.setEnabled(isenabled);
 		//streaming_urlpasscode.setEnabled(isenabled);
-		secvideo_enable.setEnabled(!isenabled);
-		record_enable.setEnabled(isenabled);
+		//secvideo_enable.setEnabled(!isenabled);
+		//record_enable.setEnabled(isenabled);
 		streaming_port.setEnabled(!isenabled);
 	}
 
@@ -298,6 +291,29 @@ public class SettingsActivity extends PreferenceActivity {
 		return s;
 	}
 
+	public String getSBitrateMode(String str){
+		int val = -1;
+		try{
+			val = Integer.parseInt(str);
+		}
+		catch(NumberFormatException e){
+			e.printStackTrace();
+		}
+
+		String s="ABR";
+		switch(val){
+			case 1:
+				s="VBR";
+				break;
+			case 2:
+				s="CBR";
+				break;
+			case 0:
+				s="CQ";
+				break;
+		}
+		return s;
+	}
 
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -327,6 +343,10 @@ public class SettingsActivity extends PreferenceActivity {
 		final ListPreference streaming_serverType = (ListPreference) findPreference("serverType");
 		streaming_serverType.setSummary(getServerType(streaming_serverType.getValue()));
 
+
+		final ListPreference record_bitrateMode = (ListPreference) findPreference("bitrateMode");
+		String sbitrateMode = settings.getString("bitrateMode", "-1");
+		record_bitrateMode.setSummary( getSBitrateMode(record_bitrateMode.getValue()));
 		
 		final ListPreference record_HRVbitrate = (ListPreference) findPreference("HRVbitrate");
 		String sHRVbitrate = settings.getString("HRVbitrate", "700");
@@ -525,6 +545,14 @@ public class SettingsActivity extends PreferenceActivity {
 				return true;
 			}
 		});
+
+		record_bitrateMode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				preference.setSummary(getSBitrateMode((String)newValue));
+				set_record_changed();
+				return true;
+			}
+		});
 		
 		record_HRVbitrate.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -567,4 +595,5 @@ public class SettingsActivity extends PreferenceActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 	}
+
 }

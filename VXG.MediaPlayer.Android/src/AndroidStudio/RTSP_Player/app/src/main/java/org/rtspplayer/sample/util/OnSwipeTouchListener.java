@@ -7,7 +7,7 @@
 
 package org.rtspplayer.sample.util;
 
-import android.util.FloatMath;
+
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -77,7 +77,7 @@ public class OnSwipeTouchListener implements OnTouchListener
     		
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
-        return FloatMath.sqrt(x * x + y * y);
+        return (float)Math.sqrt(x * x + y * y);
     }
     
     public boolean checkPinch(View v, MotionEvent event) 

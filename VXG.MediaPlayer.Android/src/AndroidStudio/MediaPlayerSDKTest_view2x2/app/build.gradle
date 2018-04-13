@@ -1,57 +1,34 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 16
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        applicationId "veg.mediaplayer.sdk.test.view2x2"
+	applicationId "veg.mediaplayer.sdk.test.view2x2"
         minSdkVersion 14
-        targetSdkVersion 24
-    }
+        targetSdkVersion 26
 
+
+        ndk {
+            abiFilters 'x86', 'armeabi', 'armeabi-v7a'
+        }
+
+    }
 
     buildTypes {
         debug {
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def apk = output.outputFile;
-                    File unaligned = output.packageApplication.outputFile;
-
-
-                    output.outputFile = new File(apk.parentFile,getAppName().toString().replace(" ",".")+".apk");
-
-                    unaligned.delete();
-                }
-            }
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
-    sourceSets.main {
-        jniLibs.srcDir '../../../../libs/'
-    }
-    productFlavors {
-        armv7_armeabi_x86 {
-            ndk {
-                abiFilter "armeabi-v7a"
-                abiFilter "armeabi"
-                abiFilter "x86"
-            }
-        }
-    }
 }
+
 
 dependencies {
-
-    compile files('../../../../libs/mediaplayersdk.jar')
-
+        compile 'com.vxg.mediasdk:playersdk:2.0.37'
+        implementation 'com.android.support:support-v4:26.0.2'
 }
 
-def getAppName() {
-    def stringsFile = android.sourceSets.main.res.sourceFiles.find { it.name.equals 'strings.xml' }
-    return new XmlParser().parse(stringsFile).string.find { it.@name.equals 'app_name' }.text()
-}

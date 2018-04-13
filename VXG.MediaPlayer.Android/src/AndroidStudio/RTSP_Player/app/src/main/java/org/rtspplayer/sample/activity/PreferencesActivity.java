@@ -34,7 +34,6 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
     private SharedPreferences settings;
 	private SharedPreferences.Editor editor;
     private CheckBoxPreference prefDecodingType;
-
     private CheckBoxPreference prefShowPreview;
 
     private CheckBoxPreference prefSynchroEnable;
@@ -68,7 +67,6 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
 
 		settings = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-
 		prefSynchroEnable = (CheckBoxPreference) findPreference("synchroEnable");
 		
 
@@ -77,7 +75,6 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
 		prefShowPreview = (CheckBoxPreference) findPreference("showPreview");
 		if (prefShowPreview != null)
 			prefShowPreview.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN);
-
 
 		prefSynchroEnable.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() 
 		{

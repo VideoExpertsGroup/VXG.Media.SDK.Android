@@ -44,6 +44,7 @@ import org.rtspplayer.sample.util.PlayerCallBacks;
 import org.rtspplayer.sample.util.SharedSettings;
 import org.rtspplayer.sample.util.SystemUiHider;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -108,6 +109,10 @@ public class MainActivity extends Activity implements AddChannelDialogListener, 
     public StreamsList streamsList = null;
     public CamerasList camerasList = null;
     public GridAdapter currentList = null;
+    public final String[] EXTERNAL_PERMS = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE
+    };
+
+    public final int EXTERNAL_REQUEST = 138;
 
     //final static public int MESSAGE_UPDATE_ADAPTER = 1122;
 
@@ -748,6 +753,8 @@ public class MainActivity extends Activity implements AddChannelDialogListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(Build.VERSION.SDK_INT>22)
+        requestPermissions(EXTERNAL_PERMS,EXTERNAL_REQUEST);
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
 

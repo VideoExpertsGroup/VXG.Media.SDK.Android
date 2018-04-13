@@ -1,10 +1,3 @@
-/*
- *
- * Copyright (c) 2010-2014 EVE GROUP PTE. LTD.
- *
- */
-
-
 package veg.mediacapture.sdk.test;
 
 import android.content.Context;

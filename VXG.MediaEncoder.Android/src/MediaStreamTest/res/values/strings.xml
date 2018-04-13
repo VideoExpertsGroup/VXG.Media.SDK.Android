@@ -34,6 +34,9 @@
     <string name="settingsRecord_enable_title">Record (mp4)</string>
     <string name="settingsRecord_enable_summary">"RTMP mode only"</string>
 
+    <string name="settingsRecord_video_bitrate_mode_title">Video bitrate mode</string>
+    <string name="settingsRecord_video_bitrate_mode_summary">""</string>
+
     <string name="settingsRecord_HRVbitrate_title">Video bitrate (kbps)</string>
     <string name="settingsRecord_HRVbitrate_summary">""</string>
     

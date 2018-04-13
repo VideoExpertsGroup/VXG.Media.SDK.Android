@@ -49,6 +49,7 @@
  -->     </PreferenceCategory> 
      
       <PreferenceCategory android:title="@string/settingsRecord" >
+
           
           <ListPreference
             android:entries="@array/videoResArray"
@@ -57,6 +58,14 @@
             android:key="videoRes"
             android:summary="@string/settingsRecord_videoRes_summary"
             android:title="@string/settingsRecord_videoRes_title" />
+
+         <ListPreference
+            android:entries="@array/videoBitrateModeArray"
+            android:entryValues="@array/videoBitrateModeValues"
+            android:defaultValue="-1"
+            android:key="bitrateMode"
+            android:summary="@string/settingsRecord_video_bitrate_mode_summary"
+            android:title="@string/settingsRecord_video_bitrate_mode_title" />
           
          <ListPreference
             android:entries="@array/videoHRVBitrateArray"

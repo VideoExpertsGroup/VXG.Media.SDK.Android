@@ -294,8 +294,8 @@ public class Player extends Fragment implements MediaPlayer.MediaPlayerCallback
  		player.setVisibility(View.VISIBLE);
 		playerHwStatus.setVisibility(View.VISIBLE);
 
- 		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+ 		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 	}
     
 

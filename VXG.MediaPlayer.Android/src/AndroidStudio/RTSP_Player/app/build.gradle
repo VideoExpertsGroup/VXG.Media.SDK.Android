@@ -1,61 +1,36 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        applicationId "org.rtspplayer.sample"
+	applicationId "org.rtspplayer.sample"
         minSdkVersion 14
-        targetSdkVersion 24
+        targetSdkVersion 26
+
+
+        ndk {
+            abiFilters 'x86', 'armeabi', 'armeabi-v7a'
+        }
+
     }
 
     buildTypes {
         debug {
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def apk = output.outputFile;
-
-
-
-                    output.outputFile = new File(apk.parentFile,getAppName().toString().replace(" ",".")+".apk");
-
-
-                }
-            }
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
-    sourceSets.main {
-        jniLibs.srcDir '../../../../libs/'
-    }
-    productFlavors {
-        armv7_armeabi_x86 {
-            ndk {
-                abiFilter "armeabi-v7a"
-                abiFilter "armeabi"
-                abiFilter "x86"
-            }
-        }
-    }
 }
 
-
-
-def getAppName() {
-    def stringsFile = android.sourceSets.main.res.sourceFiles.find { it.name.equals 'strings.xml' }
-    return new XmlParser().parse(stringsFile).string.find { it.@name.equals 'app_name' }.text()
-}
 
 dependencies {
-    compile 'com.android.support:support-v4:19.1.0'
-    compile files('../../../../libs/mediaplayersdk.jar')
-    compile files('./src/main/libs/org.apache.http.legacy.jar')
-
+        compile 'com.vxg.mediasdk:playersdk:2.0.37'
+		compile 'com.android.support:appcompat-v7:25.0.1'
+        implementation 'com.android.support:support-v4:26.0.2'
+		compile files('./src/main/libs/org.apache.http.legacy.jar')
 }
-
 

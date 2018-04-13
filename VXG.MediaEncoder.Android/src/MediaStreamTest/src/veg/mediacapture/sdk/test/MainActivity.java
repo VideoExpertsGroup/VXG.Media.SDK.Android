@@ -1,10 +1,3 @@
-/*
- *
- * Copyright (c) 2010-2014 EVE GROUP PTE. LTD.
- *
- */
-
-
 package veg.mediacapture.sdk.test;
 
 import android.app.ActionBar;
@@ -57,6 +50,8 @@ import java.io.IOException;
 import android.os.Looper;
 import java.io.BufferedOutputStream;
 import android.graphics.Matrix;
+import android.os.Build;
+import android.Manifest;
 
 
 public class MainActivity extends Activity implements MediaCaptureCallback
@@ -65,6 +60,8 @@ public class MainActivity extends Activity implements MediaCaptureCallback
     
     private static final boolean TEST_SEPARATED_CONTROL = false;
 	private static final boolean USE_PORTRAIT_MODE = false;
+
+	private static final boolean GET_JPEG_ON_START = false;
     
     private SharedPreferences settings=null;
     
@@ -95,6 +92,9 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 	
 	public static MainActivity sMainActivity;
 	public MediaCaptureConfig mConfig;
+
+	boolean mJPEG_ready = false;
+	String  mJPEG_file = "";
 	
 	// Event handler
 	
@@ -114,7 +114,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 	        		strText = "Opened";
 	        		break;
 	        	case CAP_SURFACE_CREATED:
-	        		strText = "Camera surface created";
+	        		strText = "Camera surface created surfaceView="+capturer.getSurfaceView();
 	        		misSurfaceCreated = true;
 	        		break;
 	        	case CAP_SURFACE_DESTROYED:
@@ -136,13 +136,15 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 	        	case CAP_TIME:
 	        		
 					 if(isRec()){
-			        	int rtmp_status = capturer.getRTMPStatus();
+			        	int rtmp_status = capturer.getStreamStatus();
 			        	int dur = (int)(long)capturer.getDuration()/1000;
 			        	int v_cnt = capturer.getVideoPackets();
 			        	int a_cnt = capturer.getAudioPackets();
 			        	long v_pts = capturer.getLastVideoPTS();
 			        	long a_pts = capturer.getLastAudioPTS();
 			        	int nreconnects = capturer.getStatReconnectCount();
+						long actual_bitrate = capturer.getPropLong(PlayerRecordStat.forType(PlayerRecordStat.PP_RECORD_STAT_ACTUAL_BITRATE));
+						long actual_framerate = capturer.getPropLong(PlayerRecordStat.forType(PlayerRecordStat.PP_RECORD_STAT_ACTUAL_FRAMERATE));
 
 						 String sss = "";
 						 String sss2 = "";
@@ -170,7 +172,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 							 }else if(rtmp_status == (-12)){
 								 sss += " Out of memory";
 							 }
-							 sss2 += "v:"+v_cnt+" a:"+a_cnt+" rcc:"+nreconnects;
+							 sss2 += "v:"+v_cnt+" a:"+a_cnt+" rcc:"+nreconnects+"  "+actual_bitrate+"kbps : "+actual_framerate+"fps";
 							 sss2 += "\nv_pts: "+v_pts+" a_pts: "+a_pts+" delta: "+(v_pts-a_pts);
 							 }
 							 
@@ -230,6 +232,32 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		return 0;
 	}
 
+	private void StartJPEG(){
+		mJPEG_ready = false;
+		runOnUiThread(new Runnable()
+        {
+           @Override
+           public void run(){
+			   capturer.StartTranscoding();
+           }
+        });
+	}
+
+	private void StopJPEG(){
+		mJPEG_ready = true;
+		runOnUiThread(new Runnable()
+        {
+           @Override
+           public void run(){
+			   File filePreview = new File(mJPEG_file);
+			   if(filePreview.exists()){
+				   Toast.makeText(MainActivity.sMainActivity, "JPEG file ready="+filePreview.getAbsolutePath(), Toast.LENGTH_LONG).show();
+			   }
+			   capturer.StopTranscoding();
+           }
+        });
+	}
+
 	// callback from Native Capturer 
 	@Override
 	public int OnCaptureReceiveData(ByteBuffer buffer, int type, int size,
@@ -237,23 +265,10 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		
 		Log.v(TAG, "=OnCaptureReceiveData buffer="+buffer+" type="+type+" size="+size+" pts="+pts);
 
-		/*
-		runOnUiThread(new Runnable()
-        {
-           @Override
-           public void run(){
-			   Toast.makeText(MainActivity.sMainActivity, "Stop Transcoding", Toast.LENGTH_LONG).show();
-			   if(capturer != null)
-				   capturer.StopTranscoding();
-           }
-        });*/
-
 		
-        /*if (mJPEG_ready) {
-            Log.e(TAG, "=OnCaptureReceiveData, mJPEG_ready");
-            StopTranscoding();
+        if (mJPEG_ready) {
             return 0;
-        }*/
+        }
 
         if (buffer == null){
             Log.e(TAG, "=OnCaptureReceiveData, buffer is null");
@@ -268,10 +283,11 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		String spath = getRecordPath();
         if(spath == null){
             Log.e(TAG, "=OnCaptureReceiveData spath is null");
-            //StopTranscoding();
+            StopJPEG();
             return 0;
         }
 
+		mJPEG_file = getRecordPath()+"/preview_"+pts+".jpg";
         File filePreview = new File(getRecordPath(), "preview_"+pts+".jpg");
         Log.e(TAG, "=OnCaptureReceiveData, filePreview " + filePreview.getAbsolutePath());
         if(filePreview.exists()){
@@ -337,7 +353,8 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 			
 
         Log.e(TAG, "=OnCaptureReceiveData end ");
-        //StopTranscoding();
+
+		StopJPEG();
 		return 0;
 	}
 
@@ -345,7 +362,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode != MediaCapture.PERMISSION_CODE) {
-            Toast.makeText(this, "Unknown request code: " + requestCode, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Unknown request code: " + requestCode, Toast.LENGTH_SHORT).show();
             return;
         }
         if (resultCode != RESULT_OK) {
@@ -365,6 +382,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
     @Override
 	public void onCreate(Bundle savedInstanceState)
 	{
+		//MediaCapture.DISABLE_CAMERA = true;
 		String  strUrl;
 
 		setTitle(R.string.app_name);
@@ -375,6 +393,21 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 
 		//get library version
 		Log.v(TAG, "=>onCreate MediaCapture::getLibVersion()="+MediaCapture.getLibVersion());
+
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+				checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
+				checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+				checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+				) {
+                Activity.requestPermissions(this, new String[]{
+					Manifest.permission.CAMERA, 
+					Manifest.permission.RECORD_AUDIO, 
+					Manifest.permission.READ_EXTERNAL_STORAGE, 
+					Manifest.permission.WRITE_EXTERNAL_STORAGE
+					}, 1);
+            }
+        }*/
 
 		// Prevents the phone to go to sleep mode
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -449,7 +482,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 
 		capturer.RequestPermission(this);
 
-		if (mConfig.getCaptureSource() == MediaCaptureConfig.CaptureSources.PP_MODE_CAMERA.val())
+		if (mConfig.getCaptureSource() != MediaCaptureConfig.CaptureSources.PP_MODE_VIRTUAL_DISPLAY.val())
 			capturer.Open(null, this);
 
         mbuttonSettings = (ImageButton) findViewById(R.id.imageButtonMenu);
@@ -464,7 +497,8 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 						}else{
 							// Starts QualityListActivity where user can change the streaming quality
 							intent = new Intent(MainActivity.sMainActivity.getBaseContext(),SettingsActivity.class);
-							startActivityForResult(intent, 0);
+							startActivity(intent);
+							finish();
 						}
 					}
 				}
@@ -518,6 +552,11 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 									  }
 								}, 20000);
 
+							}
+
+							
+							if(GET_JPEG_ON_START){
+								StartJPEG();
 							}
 
 							//mbuttonRec.setText("Stop Streaming");
@@ -627,7 +666,12 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		
 		misAudioEnabled = settings.getBoolean("audio_enable", true);
 		
+		boolean is_secvideo= settings.getBoolean("secvideo_enable", true);
+		
 		MediaCaptureConfig config = capturer.getConfig();
+
+		//config.setCameraFacing(MediaCaptureConfig.CAMERA_FACING_FRONT);
+		
 		int ncm = config.getCaptureMode();
 		if(misAudioEnabled){
 			 ncm |= CaptureModes.PP_MODE_AUDIO.val();
@@ -652,9 +696,20 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		if(is_rtsp){
 			String rtsp_url = "rtsp://@:"+settings.getString("urlport", "5540");
 			config.setUrl(rtsp_url);
+			config.setUrlSec(is_secvideo?rtsp_url:"");
 		}else{
 			config.setUrl(rtmp_url);
+			config.setUrlSec(is_secvideo?rtmp_url+"2":"");
 		}
+		/*
+		//START RTSP + RTMP together
+		String rtsp_url = "rtsp://@:"+settings.getString("urlport", "5540");
+		config.setUrl(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val(), rtsp_url);
+		config.setUrlSec(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val(), is_secvideo?rtsp_url:"");
+		config.setUrl(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val(), rtmp_url);
+		config.setUrlSec(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val(), is_secvideo?rtmp_url+"2":"");
+		*/
+		
 		if(USE_PORTRAIT_MODE){
 			config.setvideoOrientation(90); //portrait
 		}else{
@@ -664,6 +719,19 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		config.setVideoKeyFrameInterval(1);
 		config.setVideoBitrate(vbitrate);
 
+		int bitrateMode = MediaCaptureConfig.BITRATE_MODE_ADAPTIVE;
+		try{
+			bitrateMode = Integer.parseInt(settings.getString("bitrateMode", ""+MediaCaptureConfig.BITRATE_MODE_ADAPTIVE));
+		}catch(NumberFormatException e){
+			e.printStackTrace();
+		}
+		config.setVideoBitrateMode(bitrateMode);
+		config.setVideoSecBitrateMode(bitrateMode);
+		if(bitrateMode == MediaCaptureConfig.BITRATE_MODE_ADAPTIVE){
+			config.setVideoMaxLatency(500); //0.5sec
+		}else{
+			config.setVideoMaxLatency(0); //no latency control
+		}
 		
 		List<CaptureVideoResolution> listRes = config.getVideoSupportedRes();
 		if(listRes != null && listRes.size()>0){
@@ -709,20 +777,19 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 			break;
 		}
 		
-		boolean is_secvideo= settings.getBoolean("secvideo_enable", true);
 		if(config.getVideoWidth() == 320 || config.getVideoWidth() == 240){
 			config.setSecVideoResolution(CaptureVideoResolution.VR_720x480);
 		}else{
-			config.setSecVideoResolution(CaptureVideoResolution.VR_1920x1080 /* CaptureVideoResolution.VR_320x240*/ );
+			config.setSecVideoResolution(CaptureVideoResolution.VR_320x240);
 		}
 		config.setSecVideoFramerate(5);
 		config.setSecVideoKeyFrameInterval(2);
 		//config.setUseSec(is_rtsp && is_secvideo);
 
-		/*misRecfileEnabled = settings.getBoolean("record_enable", false);
-		if(is_rtsp)
-			misRecfileEnabled = false;*/
-		misRecfileEnabled = true;
+		misRecfileEnabled = settings.getBoolean("record_enable", false);
+		//if(is_rtsp)
+		//	misRecfileEnabled = false;
+		//misRecfileEnabled = true;
 		config.setUseSec(true);
 		config.setUseSecRecord(true);
 		config.setRecordPrefixSec("secondary");
@@ -790,8 +857,14 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 			config.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_VIRTUAL_DISPLAY.val());
 		}
 		else {
-			config.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_CAMERA.val());
+			if(MediaCapture.DISABLE_CAMERA){
+				config.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_SURFACE.val());
+			}else{
+				config.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_CAMERA.val());
+			}
 		}
+
+		//config.setRecordTimeshift(10);
 
 	}
 
@@ -916,7 +989,8 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 				Toast.makeText(this,"Press 'Stop Streaming' button  first", Toast.LENGTH_LONG).show();
 			}else{
 				intent = new Intent(this.getBaseContext(),SettingsActivity.class);
-				startActivityForResult(intent, 0);
+				startActivity(intent);
+				finish();
 			}
 			return true;
 			

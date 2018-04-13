@@ -242,7 +242,9 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 			{
     	    	MediaPlayerConfig conf = new MediaPlayerConfig();
     	    	
-    	    	player.setVisibility(View.INVISIBLE);
+    	    	//player.setVisibility(View.INVISIBLE);
+
+				Log.e("Test", "ConnectionUrl " + ConnectionUrl);
     	    	
     	    	conf.setConnectionUrl(ConnectionUrl);
     	    	

@@ -402,8 +402,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 
 		strUrl = settings.getString("connectionUrl", "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov");
 		
-		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 		
 		HashSet<String> tempHistory = new HashSet<String>();
 
@@ -486,12 +486,6 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 					Log.e("SDL", "getVideoShot()");
 
 	    	    	SharedSettings sett = SharedSettings.getInstance();
-					if (sett.decoderType != 0)
-					{
-						Toast.makeText(getApplicationContext(), "For Software Decoder Only!",
-							   Toast.LENGTH_SHORT).show();
-						return;
-					}
 					
 					//VideoShot frame = player.getVideoShot(200, 200);
 					VideoShot frame = player.getVideoShot(-1, -1);
@@ -913,8 +907,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
  		player.setVisibility(View.VISIBLE);
 		playerHwStatus.setVisibility(View.VISIBLE);
 
- 		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+ 		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 		
 		setTitle("");
 	}

@@ -401,8 +401,18 @@ public class MainActivity extends Activity implements MediaPlayer.MediaPlayerCal
         return 0;
     }
 
-    
-    @Override
+	@Override
+	public int OnAudioRendererFormat(int i, int i1, int i2, int i3) {
+		return 0;
+	}
+
+	@Override
+	public int OnAudioRendererFrameAvailable(ByteBuffer byteBuffer, int i, long l) {
+		return 0;
+	}
+
+
+	@Override
     public void onCreate(Bundle savedInstanceState) 
 	{
 		String  strUrl;

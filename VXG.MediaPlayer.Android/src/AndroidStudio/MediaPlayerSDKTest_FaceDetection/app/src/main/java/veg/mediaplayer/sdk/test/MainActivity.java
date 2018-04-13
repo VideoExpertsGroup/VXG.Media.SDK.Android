@@ -391,9 +391,18 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 			return 0;
 		}
 
+	@Override
+	public int OnAudioRendererFormat(int i, int i1, int i2, int i3) {
+		return 0;
+	}
 
-	
-    @Override
+	@Override
+	public int OnAudioRendererFrameAvailable(ByteBuffer byteBuffer, int i, long l) {
+		return 0;
+	}
+
+
+	@Override
     public void onCreate(Bundle savedInstanceState) 
 	{
 		String  strUrl;
@@ -428,8 +437,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 
 		strUrl = settings.getString("connectionUrl", "rtsp://184.72.239.149/vod/BigBuckBunny_115k.mov");
 		
-		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 		
 		HashSet<String> tempHistory = new HashSet<String>();
 
@@ -923,8 +932,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
  		player.setVisibility(View.VISIBLE);
 		playerHwStatus.setVisibility(View.VISIBLE);
 
- 		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+ 		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 		
 		setTitle("");
 	}

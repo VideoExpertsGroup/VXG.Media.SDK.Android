@@ -74,8 +74,8 @@ class Player extends FrameLayout implements MediaPlayer.MediaPlayerCallback
 	public void Open(final String url) 
 	{
 
-		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 		
 		if (player != null)
 		{
@@ -294,8 +294,8 @@ class Player extends FrameLayout implements MediaPlayer.MediaPlayerCallback
  		player.setVisibility(View.VISIBLE);
 		playerHwStatus.setVisibility(View.VISIBLE);
 
- 		SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
-		sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+ 		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
+		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
 	}
     
 
