@@ -13,6 +13,9 @@ Player module can be used for IPTV, Android client of surveillance system, IP ca
 Encoding module can be used for any kind of mobile video broadcasting: home surveillance, social networks, etc.
 Source code of samples can be provided.
 
+## Documentation 
+The full SDK documentation can be found here - https://dashboard.videoexpertsgroup.com/docs3/. 
+
 ## Media Player
    Main features:
    * **Low latency for network streams** – Special API controls playback latency and buffering in every module.
