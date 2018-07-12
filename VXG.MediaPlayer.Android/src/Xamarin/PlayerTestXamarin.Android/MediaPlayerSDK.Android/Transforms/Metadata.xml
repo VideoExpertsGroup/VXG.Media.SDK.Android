@@ -1,0 +1,15 @@
+﻿<metadata>
+  <attr path="/api/package[@name='veg.mediaplayer.sdk']/class[@name='ThumbnailerWorker']" name="visibility">public</attr>>
+  <attr path="/api/package[@name='veg.mediaplayer.sdk']/class[@name='CustomAudioTrack']" name="visibility">public</attr>>
+
+  <remove-node path="/api/package[@name='veg.mediaplayer.sdk']/class[@name='M3U8.DownloadDataTask']" />
+  <remove-node path="/api/package[@name='veg.mediaplayer.sdk']/class[@name='M3U8.HLSStreamComparator']" />
+
+  <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+</metadata>
