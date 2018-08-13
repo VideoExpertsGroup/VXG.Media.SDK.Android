@@ -1,1 +1,1 @@
-include ':mediaPlayerSDKTestDynamicSurface'
+include ':app'

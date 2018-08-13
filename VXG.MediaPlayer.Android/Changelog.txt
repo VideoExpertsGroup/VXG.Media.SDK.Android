@@ -20,6 +20,13 @@ Source code of samples can be provided.
 ----------------
 Changes log
 ----------------
+
+Version 6.27.20180522
+- Improved Android Samples: AARs are used from repository http://exchange.videoexpertsgroup.com:8080/repository/internal/
+- Added support platforms armeabi, armeabi-v7a, x86, arm64-v8a
+  Latest package :
+  compile 'com.vxg.mediasdk:playersdk:2.0.55'
+
 Version 6.05.20180411
 - Improved Android Samples: AARs are used from repository http://exchange.videoexpertsgroup.com:8080/repository/internal/
   Latest packages :

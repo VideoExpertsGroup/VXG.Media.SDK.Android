@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VXG MediaCaptureSDK Service Test</string>
+    <string name="notify_text">Background capturing started..</string>
+</resources>

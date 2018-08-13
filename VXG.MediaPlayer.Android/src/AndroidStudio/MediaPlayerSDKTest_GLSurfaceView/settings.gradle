@@ -1,1 +1,1 @@
-include ':mediaPlayerSDKTest_GLSurfaceView'
+include ':app'

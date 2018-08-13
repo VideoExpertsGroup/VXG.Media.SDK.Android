@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        applicationId "veg.mediaplayer.sdk.test"
+        minSdkVersion 14
+        targetSdkVersion 26
+
+
+
+    }
+
+    buildTypes {
+        debug {
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+
+dependencies {
+        compile 'com.vxg.mediasdk:playersdk:2.0.55'
+        implementation 'com.android.support:support-v4:26.0.2'
+}
+

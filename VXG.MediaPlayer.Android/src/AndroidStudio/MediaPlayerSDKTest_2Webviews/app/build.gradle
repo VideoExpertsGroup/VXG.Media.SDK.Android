@@ -6,13 +6,8 @@ android {
 
     defaultConfig {
 	applicationId "veg.rtspplr.sdk.rtsptestplr"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 26
-
-
-        ndk {
-            abiFilters 'x86', 'armeabi', 'armeabi-v7a'
-        }
 
     }
 
@@ -28,7 +23,7 @@ android {
 
 
 dependencies {
-        compile 'com.vxg.mediasdk:playersdk:2.0.37'
+        compile 'com.vxg.mediasdk:playersdk:2.0.55'
         implementation 'com.android.support:support-v4:26.0.2'
 }
 
