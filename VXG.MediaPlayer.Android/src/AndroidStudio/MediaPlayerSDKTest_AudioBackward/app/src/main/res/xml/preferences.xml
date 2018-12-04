@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:inputType="number" >
+	<PreferenceCategory
+   		android:title="Synchronization"
+		android:summary="" >
+  		<veg.mediaplayer.sdk.test.CheckBoxPreferenceInteger
+     			android:title="A/V synchronization"
+     			android:key="synchroEnable"
+     			android:persistent="true"
+    			android:summary="Synchronization audio and video streams." />
+  		<veg.mediaplayer.sdk.test.CheckBoxPreferenceInteger
+     			android:title="Drop video frames"
+     			android:key="synchroNeedDropVideoFrames"
+     			android:persistent="true"
+    			android:summary="Drop video frames if frame is late by PTS." />
+	</PreferenceCategory>
+	<PreferenceCategory
+   		android:title="Video decoding"
+		android:summary="" >
+  		<veg.mediaplayer.sdk.test.CheckBoxPreferenceInteger
+     			android:title="Video decoding acceleration"
+     			android:key="decoderType"
+     			android:persistent="true"
+     			android:summary="Enable the Native video decoder." />
+   	</PreferenceCategory>
+
+	<PreferenceCategory
+   		android:title="Screen"
+		android:summary="" >
+
+   		<veg.mediaplayer.sdk.test.CheckBoxPreferenceInteger
+     			android:title="Aspect ratio"
+     			android:key="rendererEnableAspectRatio"
+     			android:persistent="true"
+     			android:summary="Select aspect ratio or full screen mode." />
+<!--    		<veg.mediaplayer.sdk.test.CheckBoxPreferenceInteger
+     			android:title="Lock change orientation"
+     			android:key="LockPlayerViewOrientation"
+     			android:persistent="true"
+     			android:summary="Lock/unlock change orientation." />
+ -->	</PreferenceCategory>
+</PreferenceScreen>

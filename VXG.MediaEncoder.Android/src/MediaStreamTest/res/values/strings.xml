@@ -32,7 +32,7 @@
 
     <string name="settingsRecord">Streaming settings</string>
     <string name="settingsRecord_enable_title">Record (mp4)</string>
-    <string name="settingsRecord_enable_summary">"RTMP mode only"</string>
+    <string name="settingsRecord_enable_summary">""</string>
 
     <string name="settingsRecord_video_bitrate_mode_title">Video bitrate mode</string>
     <string name="settingsRecord_video_bitrate_mode_summary">""</string>
@@ -44,7 +44,7 @@
     <string name="settingsRecord_videoRes_summary">""</string>
     
     <string name="settingsRecord_secvideo_enable_title">"Secondary Video (/ch1)"</string>
-    <string name="settingsRecord_secvideo_enable_summary">RTSP mode only</string>
+    <string name="settingsRecord_secvideo_enable_summary">""</string>
     
     <string name="settingsRecord_LRVbitrate_title">Video bitrate (kbps)</string>
     <string name="settingsRecord_LRVbitrate_summary">""</string>

@@ -11,6 +11,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.Environment;
 import android.util.Log;
+import android.os.Build;
 
 import java.io.File;
 import java.io.IOException;
@@ -318,7 +319,7 @@ public class MediaCaptureService extends Service {
         runner.stop();
         capturer.Stop();
         capturer.Close();
-        capturer = null;
+        //capturer = null;
         super.onDestroy();
     }
 }

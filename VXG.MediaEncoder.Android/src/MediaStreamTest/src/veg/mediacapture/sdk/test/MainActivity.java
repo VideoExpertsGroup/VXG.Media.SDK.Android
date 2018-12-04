@@ -27,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Build;
 
 import java.io.File;
 import java.nio.ByteBuffer;
@@ -52,6 +53,12 @@ import java.io.BufferedOutputStream;
 import android.graphics.Matrix;
 import android.os.Build;
 import android.Manifest;
+import android.os.Build;
+//import android.support.v4.app.ActivityCompat;
+//import android.support.v4.content.ContextCompat;
+import android.content.pm.PackageManager;
+import android.media.AudioManager;
+import android.media.MediaRecorder;
 
 
 public class MainActivity extends Activity implements MediaCaptureCallback
@@ -378,6 +385,45 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		}
     }
 
+/*	private void requestPermissions(Context context, String[] permissions)
+	{
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if(context == null){
+				Log.e(TAG, "=requestPermissions, context == null");
+				return;
+			}
+			boolean needRequest = false;
+			for(String p : permissions){
+				if(ContextCompat.checkSelfPermission(context, p) != PackageManager.PERMISSION_GRANTED){
+					needRequest = true;
+					break;
+				}
+			}
+			if(needRequest){
+				ActivityCompat.requestPermissions((Activity)context, permissions, 1);
+			}
+		}
+		return;
+	}
+
+	@Override
+        public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+                for(int i=0; i< permissions.length; i++){
+                        String p = permissions[i];
+                        int g = grantResults[i];
+                        if(p.equals(Manifest.permission.CAMERA)){
+                                if(g != PackageManager.PERMISSION_GRANTED){
+                                        Log.e(TAG, "=onRequestPermissionsResult Manifest.permission.CAMERA not GRANTED");
+                                }else{
+                                        if(capturer != null) {
+                                                capturer.Close();
+                                                capturer.Open(null, this);
+                                        }
+                                }
+                        }
+                }
+        }*/
+
 
     @Override
 	public void onCreate(Bundle savedInstanceState)
@@ -410,11 +456,11 @@ public class MainActivity extends Activity implements MediaCaptureCallback
         }*/
 
 		// Prevents the phone to go to sleep mode
-		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		PowerManager pm = (PowerManager) getApplicationContext().getSystemService(Context.POWER_SERVICE);
 		mWakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "veg.mediacapture.sdk.test.mediastream");
 
 
-		WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		multicastLock = wifi.createMulticastLock("multicastLock");
 		multicastLock.setReferenceCounted(true);
 		multicastLock.acquire();
@@ -461,6 +507,10 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 
 		captureStatusText2 = (TextView)findViewById(R.id.statusRec2);
 		captureStatusText2.setText("");
+
+		/*requestPermissions(this, new String[]{
+				Manifest.permission.CAMERA,
+				Manifest.permission.RECORD_AUDIO});*/
 
 		capturer = (MediaCapture)findViewById(R.id.captureView);
 
@@ -671,6 +721,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		MediaCaptureConfig config = capturer.getConfig();
 
 		//config.setCameraFacing(MediaCaptureConfig.CAMERA_FACING_FRONT);
+		//config.setCameraFilter(MediaCaptureConfig.CAMERA_FILTER_FLIP_X);
 		
 		int ncm = config.getCaptureMode();
 		if(misAudioEnabled){
@@ -678,21 +729,35 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		}else{
 			ncm &= ~(CaptureModes.PP_MODE_AUDIO.val());
 		}
+		//set audio only
+		//ncm = CaptureModes.PP_MODE_AUDIO.val();
+		
 		//config.setUseAVSync(false); //av sync off
+		//config.setStreaming(false);
 		config.setStreaming(true);
 		config.setCaptureMode(ncm);
 		config.setStreamType(server_type);
 		if(USE_RTSP_G711){
-			config.setAudioFormat( is_rtsp ? MediaCaptureConfig.TYPE_AUDIO_G711_MLAW: MediaCaptureConfig.TYPE_AUDIO_AAC);
+			config.setAudioFormat( MediaCaptureConfig.TYPE_AUDIO_G711_MLAW);
+			//config.setAudioFormat( MediaCaptureConfig.TYPE_AUDIO_G711_ALAW);
 			config.setAudioBitrate(abitrate);
-			config.setAudioSamplingRate(is_rtsp?8000:44100); //hardcoded
-			config.setAudioChannels(is_rtsp?1:2);
+			config.setAudioSamplingRate(8000); 
+			config.setAudioChannels(1);
 		}else{
 			config.setAudioFormat( MediaCaptureConfig.TYPE_AUDIO_AAC);
 			config.setAudioBitrate(abitrate);
 			config.setAudioSamplingRate(44100); //hardcoded
 			config.setAudioChannels(2);
 		}
+
+		//change audio input
+                /*AudioManager audio_manager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+                audio_manager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+                audio_manager.setSpeakerphoneOn(true);
+
+		config.setAudioSource(MediaRecorder.AudioSource.MIC);*/
+
+		
 		if(is_rtsp){
 			String rtsp_url = "rtsp://@:"+settings.getString("urlport", "5540");
 			config.setUrl(rtsp_url);

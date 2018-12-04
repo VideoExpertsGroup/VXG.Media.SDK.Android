@@ -21,6 +21,13 @@ Source code of samples can be provided.
 Changes log
 ----------------
 
+Version 6.46.20181204
+- Fixed issue in GetVideoShot : crashing in getShot if h/w decoder is used.
+
+Version 6.45.20180821
+- AudioBackward API added
+- test app MediaPlayerSDKTest_AudioBackward added
+
 Version 6.27.20180522
 - Improved Android Samples: AARs are used from repository http://exchange.videoexpertsgroup.com:8080/repository/internal/
 - Added support platforms armeabi, armeabi-v7a, x86, arm64-v8a

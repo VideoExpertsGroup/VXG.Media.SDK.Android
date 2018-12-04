@@ -18,6 +18,9 @@ VXG Mobile Encoder SDK Features :
 VXG Encoder SDK can be used in IPTV, Android streamer of Surevelene system , IP camera on mobile camera, Social network streamer and network streamer.
 Source code of samples can be provided. 
 
+MediaCaptureSDK ver.6.06.20181024
+1. fixed crash in RTSP Server 
+
 MediaCaptureSDK ver.6.06.20180724 
 1. fixed crash on network off, after avio_open(&cptr->pb, cptr->filename, AVIO_FLAG_WRITE) error
 2. MediaCaptureConfig.setAudioSource(int) added. MediaRecorder.AudioSource.MIC by default

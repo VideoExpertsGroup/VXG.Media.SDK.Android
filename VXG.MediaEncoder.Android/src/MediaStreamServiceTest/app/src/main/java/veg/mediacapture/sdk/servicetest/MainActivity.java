@@ -34,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
     public static final int STATUS_SERVICE_STOPPED = 0x200;
     public static final int STATUS_UPDATE = 0x300;
     private Button button_open;
-    private Button button_stream_main;
-    private Button button_stream_sec;
+    private Button button_stream_main_rtmp;
+    private Button button_stream_sec_rtmp;
+    private Button button_stream_main_rtsp;
+    private Button button_stream_sec_rtsp;
     private Button button_rec_main;
     private Button button_rec_sec;
     private Intent serviceIntent = null;
@@ -90,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate");
 
         button_open = (Button) findViewById(R.id.button_open);
-        button_stream_main = (Button) findViewById(R.id.button_start_stream_main);
-        button_stream_sec = (Button) findViewById(R.id.button_start_stream_sec);
+        button_stream_main_rtmp = (Button) findViewById(R.id.button_start_stream_main);
+        button_stream_sec_rtmp = (Button) findViewById(R.id.button_start_stream_sec);
+        button_stream_main_rtsp = (Button) findViewById(R.id.button_start_stream_main_rtsp);
+        button_stream_sec_rtsp = (Button) findViewById(R.id.button_start_stream_sec_rtsp);
         button_rec_main = (Button) findViewById(R.id.button_start_rec_main);
         button_rec_sec = (Button) findViewById(R.id.button_start_rec_sec);
         update_ui();
@@ -136,31 +140,61 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button_stream_main.setOnClickListener(new View.OnClickListener() {
+        button_stream_main_rtmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(service == null || service.capturer == null){
 					Log.d(TAG, "button_stream_main Service not avail service="+service+" service.capturer="+(service != null?service.capturer:null));
                     return;
                 }
-                if(!service.capturer.getConfig().isStreaming() || !service.capturer.getConfig().isUseMainStreaming()) {
-                    service.capturer.StartStreaming();
+                if(!service.capturer.getConfig().isStreaming() || !service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val(), false)) {
+                    service.capturer.StartStreaming(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val());
                 }else{
-                    service.capturer.StopStreaming();
+                    service.capturer.StopStreaming(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val());
                 }
 				update_ui();
             }
         });
 
-        button_stream_sec.setOnClickListener(new View.OnClickListener() {
+        button_stream_sec_rtmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(service == null || service.capturer == null)
                     return;
-                if(!service.capturer.getConfig().isStreaming() || !service.capturer.getConfig().isUseSecStreaming()) {
-                    service.capturer.StartStreamingSec();
+                if(!service.capturer.getConfig().isStreaming() || !service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val(), true)) {
+                    service.capturer.StartStreamingSec(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val());
                 }else{
-                    service.capturer.StopStreamingSec();
+                    service.capturer.StopStreamingSec(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val());
+                }
+				update_ui();
+            }
+        });
+
+        button_stream_main_rtsp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(service == null || service.capturer == null){
+					Log.d(TAG, "button_stream_main Service not avail service="+service+" service.capturer="+(service != null?service.capturer:null));
+                    return;
+                }
+                if(!service.capturer.getConfig().isStreaming() || !service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val(), false)) {
+                    service.capturer.StartStreaming(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val());
+                }else{
+                    service.capturer.StopStreaming(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val());
+                }
+				update_ui();
+            }
+        });
+
+        button_stream_sec_rtsp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(service == null || service.capturer == null)
+                    return;
+                if(!service.capturer.getConfig().isStreaming() || !service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val(), true)) {
+                    service.capturer.StartStreamingSec(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val());
+                }else{
+                    service.capturer.StopStreamingSec(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val());
                 }
 				update_ui();
             }
@@ -219,11 +253,17 @@ public class MainActivity extends AppCompatActivity {
 		return (service != null && service.capturer != null);
 	}
     private void update_ui(){
-        button_stream_main.setEnabled(opened);
-		button_stream_main.setText( (isCapturer() && service.capturer.getConfig().isStreaming() && service.capturer.getConfig().isUseMainStreaming())? "Stop Stream Main":"Start Stream Main");
+        button_stream_main_rtmp.setEnabled(opened);
+		button_stream_main_rtmp.setText( (isCapturer() && service.capturer.getConfig().isStreaming() && service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val(), false))? "Stop Stream Main RTMP":"Start Stream Main RTMP");
 		
-        button_stream_sec.setEnabled(opened);
-		button_stream_sec.setText( (isCapturer() && service.capturer.getConfig().isStreaming() && service.capturer.getConfig().isUseSecStreaming())? "Stop Stream Sec":"Start Stream Sec");
+        button_stream_sec_rtmp.setEnabled(opened);
+		button_stream_sec_rtmp.setText( (isCapturer() && service.capturer.getConfig().isStreaming() && service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val(), true))? "Stop Stream Sec RTMP":"Start Stream Sec RTMP");
+
+        button_stream_main_rtsp.setEnabled(opened);
+		button_stream_main_rtsp.setText( (isCapturer() && service.capturer.getConfig().isStreaming() && service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val(), false))? "Stop Stream Main RTSP":"Start Stream Main RTSP");
+		
+        button_stream_sec_rtsp.setEnabled(opened);
+		button_stream_sec_rtsp.setText( (isCapturer() && service.capturer.getConfig().isStreaming() && service.capturer.getConfig()._getStreamingOn(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTSP_SERVER.val(), true))? "Stop Stream Sec RTSP":"Start Stream Sec RTSP");
 		
         button_rec_main.setEnabled(opened);
 		button_rec_main.setText( (isCapturer() && service.capturer.getConfig().isRecording() && service.capturer.getConfig().isUseMainRecording())? "Stop Rec Main":"Start Rec Main");
