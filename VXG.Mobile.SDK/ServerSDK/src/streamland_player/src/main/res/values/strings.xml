@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StreamLand Player (Demo) </string>
+    <string name="app_short_name">StreamLand Player (Demo)</string>
+
+    <string name="action_connect">Connect</string>
+</resources>

@@ -1,0 +1,5 @@
+<h3>Network Media Player (Demo)</h3>
+Version: 2.0.1405.2317<br>
+(c) Copyright VEG, LLC.<br>
+2012-2014. All rights reserved.<br>
+<b>videoexpertsgroup.com</b><br>

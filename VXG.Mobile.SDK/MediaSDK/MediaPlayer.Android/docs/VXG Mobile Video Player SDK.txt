@@ -1,0 +1,2 @@
+Documentation
+https://dashboard.videoexpertsgroup.com/docs/#Android.PlayerSDK/

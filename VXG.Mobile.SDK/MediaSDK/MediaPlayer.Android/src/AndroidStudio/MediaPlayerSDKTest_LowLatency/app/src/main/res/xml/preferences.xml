@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:inputType="number" >
+	<PreferenceCategory
+   		android:title="Synchronization"
+		android:summary="" >
+  		<vxg.mediaplayer.lowlat.test.CheckBoxPreferenceInteger
+     			android:title="A/V sync"
+     			android:key="synchroEnable"
+     			android:persistent="true"
+    			android:summary="Video and audio synchronization." />
+	</PreferenceCategory>
+	<PreferenceCategory
+   		android:title="Video decoding"
+		android:summary="" >
+  		<vxg.mediaplayer.lowlat.test.CheckBoxPreferenceInteger
+     			android:title="Video decoding acceleration"
+     			android:key="decoderType"
+     			android:persistent="true"
+     			android:summary="Enable the Native video decoder." />
+   	</PreferenceCategory>
+	<PreferenceCategory
+   		android:title="Network Protocol"
+		android:summary="" >
+  		<vxg.mediaplayer.lowlat.test.CheckBoxPreferenceInteger
+     			android:title="TCP or UDP"
+     			android:key="TCP"
+     			android:persistent="true"
+     			android:summary="TCP - true, UDP - false" />
+	    <vxg.mediaplayer.lowlat.test.IntEditTextPreference
+     			android:title="ProbeTime"
+     			android:summary="Time to detect video and audio format (ms) Please set 1000 or more if there is NOT video or wrong video"
+		     	android:key="connectionDetectionTime"
+		     	android:inputType="number"
+		     	/>
+	</PreferenceCategory>
+	<PreferenceCategory
+   		android:title="Low Latency"
+		android:summary="" >
+  		<vxg.mediaplayer.lowlat.test.CheckBoxPreferenceInteger
+     			android:title="Low Latency video decoder"
+     			android:key="lowLatency"
+     			android:persistent="true"
+     			android:summary="Low latency mode (work if Video decoding acceleration is false)" />
+	</PreferenceCategory>
+	<PreferenceCategory
+   		android:title="Screen"
+		android:summary="" >
+	   		<vxg.mediaplayer.lowlat.test.CheckBoxPreferenceInteger
+     			android:title="Aspect ratio"
+     			android:key="rendererEnableAspectRatio"
+     			android:persistent="true"
+     			android:summary="Select aspect ratio or full screen mode." />
+<!--    		<vxg.mediaplayer.lowlat.test.CheckBoxPreferenceInteger
+     			android:title="Lock change orientation"
+     			android:key="LockPlayerViewOrientation"
+     			android:persistent="true"
+     			android:summary="Lock/unlock change orientation." />
+ -->	</PreferenceCategory>
+</PreferenceScreen>

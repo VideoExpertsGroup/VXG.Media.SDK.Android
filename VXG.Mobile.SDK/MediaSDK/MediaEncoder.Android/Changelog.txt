@@ -1,0 +1,60 @@
+VXG Mobile Encoder SDK Features :
+
+- RTMP/RTMPS publish 
+- RTSP server
+- RTP by TCP and UDP; RTP over HTTP tunnel
+- Multi-channel support – simultaneous encoding of 2 streams: Main and Secondary channels.
+- Hardware acceleration – a new hardware accelerated encoder up to UHD resolution.
+- Low latency for network stream – special API to control encoder latency.
+- AAC and G.711 audio codecs
+- H.264 video codes
+- Encrypted channel (RTP over HTTPS tunnel)
+- WebRTC camera
+- Support background capture camera 
+- One channel transcoding in real time
+- Support 2 channels for recording and streaming    
+
+
+VXG Encoder SDK can be used in IPTV, Android streamer of Surevelene system , IP camera on mobile camera, Social network streamer and network streamer.
+Source code of samples can be provided. 
+
+MediaCaptureSDK ver.6.06.20181024
+1. fixed crash in RTSP Server 
+
+MediaCaptureSDK ver.6.06.20180724 
+1. fixed crash on network off, after avio_open(&cptr->pb, cptr->filename, AVIO_FLAG_WRITE) error
+2. MediaCaptureConfig.setAudioSource(int) added. MediaRecorder.AudioSource.MIC by default
+3. shared ffmpeg with VXG.MediaPlayerSDK, platforms arm64-v8a armeabi armeabi-v7a x86 added
+4. added ALAW/MULAW audio codec configurations
+5. VR_1920x1200 resolution added
+- Added support platforms armeabi, armeabi-v7a, x86, arm64-v8a
+
+
+MediaCaptureSDK ver.6.05.20180515 
+1. Camera Facing CAMERA_FACING_FRONT  corrected. 
+2. Camera filter CAMERA_FILTER_FLIP_X mode corrected
+
+MediaCaptureSDK ver.6.05.20180327 
+1. disable VERBOSE flag. 
+2. MediaCaptureConfig copy constructor corrected
+
+MediaCaptureSDK ver. 6.04.20180315
+1. added startRecord/stopRecord in offscreenrenderer
+
+MediaCaptureSDK ver. 6.04.20180314
+1. RTMP+RTSP+Rec Main+Secondary channels added. Individual start/stop added.
+1. CAMERA_FILTER_CUSTOM_VERTEX_SHADER, CAMERA_FILTER_CUSTOM_FRAGMENT_SHADER added
+
+MediaCaptureSDK ver. 6.04.20180312
+1. cameraFacing FRONT camera
+2. set camera preview corrected
+3. setCameraFilter() added. CAMERA_FILTER_NONE(default), CAMERA_FILTER_FLIP_X
+4. getRTMPStatus() marked @Deprecated
+
+MediaCaptureSDK ver.6.01.20180222
+1. ABR control added.
+2. Tests updated. Bitrate mode added. ABR set by default.
+
+MediaCaptureSDK ver.5.97.20180216 1. disabled http=8080 port.
+MediaCaptureSDK ver.5.97.20180209 1. use uint32_t to prevent UB on x86 systems
+MediaEncoderSDK ver.5.97.20180202 1. added x86 arch support

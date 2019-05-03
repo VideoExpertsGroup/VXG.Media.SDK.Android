@@ -1,0 +1,13 @@
+This software uses libraries from the FFmpeg project under the LGPLv2.1<br>
+You can download FFmpeg source from<br>
+ffmpeg.org/download.html<br>
+<br>
+This software uses libraries from the SDL project under the zlib license<br>
+You can download SDL source from<br>
+www.libsdl.org/hg.php<br>
+<br>
+This software uses libraries from the libxml2 project under the MIT license<br>
+You can download libxml2 source from<br>
+xmlsoft.org/downloads.html<br>
+<br>
+

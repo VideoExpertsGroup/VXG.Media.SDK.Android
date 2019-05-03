@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+    <veg.mediaplayer.sdk.MediaPlayer
+        android:id="@+id/playerSdk"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         />
+    <FrameLayout
+        android:background="#52000000"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#52000000"
+            android:id="@+id/bottonsPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom|center"
+            >
+            <FrameLayout
+                android:id="@+id/btnLock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/cloud_player_view_mode2_player_lock"
+                    android:layout_width="@dimen/player_bottom_buts_size"
+                    android:layout_height="@dimen/player_bottom_buts_size"
+                    android:layout_margin="@dimen/player_bottom_buts_interval"
+                    android:src="@drawable/ic_player_lock"
+                    />
+            </FrameLayout>
+
+            <ImageView
+
+                android:visibility="gone"
+                android:id="@+id/cloud_player_view_mode2_player_prev"
+                android:layout_width="@dimen/player_bottom_buts_size"
+                android:layout_height="@dimen/player_bottom_buts_size"
+                android:layout_margin="@dimen/player_bottom_buts_interval"
+                android:src="@drawable/ic_player_previous"
+                />
+            <FrameLayout
+                android:id="@+id/btnPlayPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnPlayPauseImage"
+                    android:layout_width="@dimen/player_bottom_buts_size"
+                    android:layout_height="@dimen/player_bottom_buts_size"
+                    android:layout_margin="@dimen/player_bottom_buts_interval"
+                    android:src="@drawable/ic_player_play"
+                    />
+            </FrameLayout>
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/cloud_player_view_mode2_player_next"
+                android:layout_width="@dimen/player_bottom_buts_size"
+                android:layout_height="@dimen/player_bottom_buts_size"
+
+                android:layout_margin="@dimen/player_bottom_buts_interval"
+                android:src="@drawable/ic_player_next"
+                />
+            <FrameLayout
+                android:id="@+id/btnAspect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnAspectImage"
+                    android:layout_width="@dimen/player_bottom_buts_size"
+                    android:layout_height="@dimen/player_bottom_buts_size"
+                    android:layout_margin="@dimen/player_bottom_buts_interval"
+                    android:src="@drawable/ic_player_screen_aspect"
+                    />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btnFullScreeen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/btnFullScreeenImage"
+                    android:layout_width="21dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/player_bottom_buts_interval"
+                    android:src="@drawable/ic_player_screen_ful" />
+            </FrameLayout>
+            <FrameLayout
+                android:visibility="gone"
+                android:id="@+id/btnPtz"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/btnPtzImage"
+                    android:layout_width="21dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/player_bottom_buts_interval"
+                    android:src="@drawable/ptz_pressed" />
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerProgress"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        />
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/btnUnLock"
+        android:layout_margin="15dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_player_unlock"/>
+    <include android:visibility="invisible"
+        android:layout_gravity="bottom"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="217dp"
+        layout="@layout/layout_camera_manipulator"/>
+</FrameLayout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+       <FrameLayout
+            android:id="@+id/streamerViewLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.04" >
+
+		   <veg.mediacapture.sdk.MediaCapture
+			   android:id="@+id/captureView"
+			   android:layout_width="fill_parent"
+			   android:layout_height="fill_parent"
+			   android:layout_gravity="center"
+			   />
+
+		   <RelativeLayout
+			   android:layout_width="fill_parent"
+			   android:layout_height="fill_parent">
+
+			   <LinearLayout
+				   android:id="@+id/bar"
+				   android:layout_width="fill_parent"
+				   android:layout_height="wrap_content"
+				   android:layout_marginLeft="35dp"
+				   android:orientation="horizontal" >
+
+				   <ImageView
+					   android:layout_margin="10dp"
+					   android:id="@+id/led"
+					   android:layout_width="35dp"
+					   android:layout_height="35dp"
+					   android:layout_gravity="center_vertical"
+					   android:src="@drawable/led_green" />
+
+				   <LinearLayout
+					   android:layout_width="fill_parent"
+					   android:layout_height="wrap_content"
+					   android:layout_marginLeft="20dp"
+					   android:layout_marginRight="20dp"
+					   android:orientation="vertical" >
+
+					   <TextView
+						   android:id="@+id/statusRec"
+						   android:layout_width="wrap_content"
+						   android:layout_height="wrap_content"
+						   android:paddingBottom="0dp"
+						   android:paddingLeft="0dp"
+						   android:paddingRight="0dp"
+						   android:paddingTop="12dp"
+						   android:shadowColor="#000000"
+						   android:shadowDx="1"
+						   android:shadowDy="1"
+						   android:shadowRadius="1"
+						   android:textColor="#FF0000"
+						   android:textSize="14dp"
+						   android:textStyle="bold" />
+					   <TextView
+						   android:id="@+id/statusStat"
+						   android:layout_width="wrap_content"
+						   android:layout_height="wrap_content"
+						   android:paddingBottom="0dp"
+						   android:paddingLeft="0dp"
+						   android:paddingRight="0dp"
+						   android:paddingTop="12dp"
+						   android:shadowColor="#000000"
+						   android:shadowDx="1"
+						   android:shadowDy="1"
+						   android:shadowRadius="1"
+						   android:text="line1\nline2\nline3"
+						   android:textColor="#ffffff"
+						   android:textSize="14sp"
+						   android:textStyle="bold"
+						   android:typeface="monospace" />
+					   <TextView
+						   android:id="@+id/statusRec2"
+						   android:layout_width="wrap_content"
+						   android:layout_height="wrap_content"
+						   android:paddingBottom="0dp"
+						   android:paddingLeft="0dp"
+						   android:paddingRight="0dp"
+						   android:paddingTop="12dp"
+						   android:shadowColor="#000000"
+						   android:shadowDx="1"
+						   android:shadowDy="1"
+						   android:shadowRadius="1"
+						   android:textColor="#FF0000"
+						   android:textSize="14dp"
+						   android:textStyle="bold" />
+				   </LinearLayout>
+
+			   </LinearLayout>
+
+
+		   </RelativeLayout>
+
+
+	   </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+				<AutoCompleteTextView
+					android:id="@+id/edit_id"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dp"
+					android:layout_weight="0.9"
+					android:inputType="text"
+					android:maxWidth="420dp"
+					android:minWidth="150dp"
+					android:singleLine="true"
+					android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/button_connect"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/action_connect"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+			</LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

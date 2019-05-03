@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+       <FrameLayout
+            android:id="@+id/player_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.04" >
+
+		   <com.vxg.ui.CloudPlayerView
+			   android:id="@+id/player_view"
+			   android:layout_width="match_parent"
+			   android:layout_height="match_parent"
+			   />
+
+	   </FrameLayout>
+
+       <LinearLayout
+		    android:id="@+id/layout_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+			<Button
+				android:id="@+id/but_show_timeline"
+				android:layout_width="150dp"
+				android:layout_height="40dp"
+				android:text="show timeline"
+				android:textColor="#ffffff"
+				android:layout_gravity="center"
+				/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:weightSum="1"
+				>
+
+				<AutoCompleteTextView
+					android:id="@+id/edit_id"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dp"
+					android:inputType="text"
+					android:maxWidth="420dp"
+					android:minWidth="150dp"
+					android:singleLine="true"
+					android:layout_weight="0.9"
+					android:textAppearance="?android:attr/textAppearanceSmall" />
+                <Button
+                    android:id="@+id/button_connect"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+					android:layout_weight="0.1"
+					android:singleLine="true"
+                    android:text="@string/action_connect"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+			</LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="app_name">Stream Player Sliding</string>
-    <string name="app_short_name">Stream Player Sliding</string>
-    <string name="title_activity_player">PlayerActivity</string>
-    <string name="action_settings">Settings</string>
-
-</resources>

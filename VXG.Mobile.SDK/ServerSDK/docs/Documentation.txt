@@ -1,0 +1,30 @@
+VXG CLOUD VIDEO. STREAMING , PROCESSING AND RECORDING
+VXG SERVER . Live Streaming . Video storage . Playback recorded video   
+
+1.  Server Player SDK
+
+1.1 Features:
+	 - Playback of live streams
+	 - Playback of recorded videos
+	 - Video controls: Play/Pause
+	 - Control of position for recorded video
+	 - Control of audio output: mute, unmute, volume control
+	 - Control of timeline for recorded video (Show/Hide)
+
+1.2 Documentation
+
+	https://dashboard.videoexpertsgroup.com/docs/#Android.StreamingSDK/#class-cloudstreamersdk
+
+
+2. Server Streamer SDK
+
+2.1 Features:
+	- Live video streaming from mobile camera
+	- Preview image setting for defined channel   
+	- Various options: video resolution, video bitrate and others
+
+
+2.2 Documentation
+
+	https://dashboard.videoexpertsgroup.com/docs/#Android.StreamingSDK/#class-cloudplayersdk
+	

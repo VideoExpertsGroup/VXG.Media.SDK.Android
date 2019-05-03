@@ -1,0 +1,2 @@
+Please see online documentation
+https://dashboard.videoexpertsgroup.com/docs/#Android.PlayerSDK/#how-to-apply-a-license-key
