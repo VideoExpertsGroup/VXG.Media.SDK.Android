@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "veg.mediacapture.sdk.test.demo"
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+}
+
+dependencies {
+    // Please use encodersdk if only media player is used  	
+    // implementation 'com.vxg.mediasdk:encodersdk:2.0:2.0.129'
+    // Please use cloudsdk for grid example because 
+    // CloudMultiPlayerView is located in cloud SDK
+     implementation 'com.vxg.cloudsdk:cloudsdk:2.0.129'
+    //implementation 'com.vxg.mediasdk:encodersdk:2.0.124'
+}

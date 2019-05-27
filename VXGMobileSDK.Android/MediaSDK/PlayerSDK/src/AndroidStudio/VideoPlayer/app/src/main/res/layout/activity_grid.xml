@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#32000000">
+<TableLayout
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <FrameLayout
+            android:id="@+id/btnPlayer1"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_gravity="center"
+                android:text="Player N1: Latency and Network options"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+        <FrameLayout
+            android:visibility="gone"
+            android:id="@+id/btnPlayer2"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_gravity="center"
+                android:text="PLayback"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+    </TableRow>
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <FrameLayout
+            android:id="@+id/btnPlayer3"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_gravity="center"
+                android:text="Player N2: RTSP playback or recorded video , Speed and position controls"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+    </TableRow>
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <FrameLayout
+            android:id="@+id/btnPlayer4"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_gravity="center"
+                android:text="Player N3: GRID 16x16"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+    </TableRow>
+</TableLayout>
+</FrameLayout>
