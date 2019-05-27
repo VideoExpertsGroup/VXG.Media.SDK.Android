@@ -1,4 +1,8 @@
+<img src="https://www.videoexpertsgroup.com/wp-content/uploads/2019/05/Group-2.2.png" alt="VXGMobileSDK.Android" width="300">
+
 # VXG Media SDK for Android
+
+
 
 ## Disclaimer
 This is a non-commercial version of VXG Media SDK for Android. Playback is limited to 2 mins.
