@@ -32,8 +32,8 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 
     // Please use playersdk if only media player is used  	
-    // implementation 'com.vxg.mediasdk:playersdk:2.0.129'
+    // implementation 'com.vxg.mediasdk:playersdk:2.0.131'
     // Please use cloudsdk for grid example because 
     // CloudMultiPlayerView is located in cloud SDK
-    implementation 'com.vxg.cloudsdk:cloudsdk:2.0.129'
+    implementation 'com.vxg.cloudsdk:cloudsdk:2.0.131'
 }

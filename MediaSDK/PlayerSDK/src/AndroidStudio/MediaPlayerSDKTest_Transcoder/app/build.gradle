@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
 
     defaultConfig {
 	applicationId "veg.mediaplayer.sdk.test.external.transcoding"
@@ -24,7 +23,7 @@ android {
 
 
 dependencies {
-	implementation 'com.vxg.cloudsdk:cloudsdk:2.0.129'
+	implementation 'com.vxg.cloudsdk:cloudsdk:2.0.131'
         implementation 'com.android.support:support-v4:27.1.1'
 }
 

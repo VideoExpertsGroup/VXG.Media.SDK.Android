@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
 
     defaultConfig {
 	applicationId "org.rtspplayer.sample"
@@ -30,7 +29,7 @@ android {
 
 
 dependencies {
-        implementation 'com.vxg.mediasdk:playersdk:2.0.129'
+        implementation 'com.vxg.mediasdk:playersdk:2.0.131'
 	implementation 'com.android.support:appcompat-v7:25.0.1'
 	implementation 'com.android.support:support-v4:27.1.1'
 	compile files('./src/main/libs/org.apache.http.legacy.jar')

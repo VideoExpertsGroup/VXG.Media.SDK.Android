@@ -21,11 +21,11 @@ android {
 
 dependencies {
     // Please use encodersdk if only media player is used  	
-    // implementation 'com.vxg.mediasdk:encodersdk:2.0:2.0.129'
+    // implementation 'com.vxg.mediasdk:encodersdk:2.0:2.0.131'
     // Please use cloudsdk for grid example because 
     // CloudMultiPlayerView is located in cloud SDK
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:support-v4:26.1.0'
-    implementation 'com.vxg.mediasdk:encodersdk:2.0.129'
+    implementation 'com.vxg.mediasdk:encodersdk:2.0.131'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
