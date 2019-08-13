@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="veg.mediaplayer.sdk.drawovervideo"
+    android:versionCode="22"
+    android:versionName="2.3"
+    android:installLocation="auto" >
+
+    <application
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_short_name"
+        android:largeHeap="true"
+        android:debuggable="true"
+         >
+        <activity android:name="veg.mediaplayer.sdk.drawovervideo.MainActivity"
+             	  android:noHistory="false"
+            	  android:configChanges="orientation|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="veg.mediaplayer.sdk.drawovervideo.PreferencesActivity"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+
+            <!-- android:theme="@android:style/Theme.Black.NoTitleBar" -->
+        </activity>
+        
+<!--         <service android:name="com.rom1v.andudpxy.UdpxyService" />
+ -->        
+    </application>
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+</manifest>

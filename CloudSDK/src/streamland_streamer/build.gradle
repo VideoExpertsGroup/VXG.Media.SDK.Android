@@ -38,6 +38,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-base:11.6.0'
     testCompile 'junit:junit:4.12'
 
-    compile 'com.vxg.cloudsdk:cloudsdk:2.0.131'
+    compile 'com.vxg.cloudsdk:cloudsdk:2.0.153'
 
 }

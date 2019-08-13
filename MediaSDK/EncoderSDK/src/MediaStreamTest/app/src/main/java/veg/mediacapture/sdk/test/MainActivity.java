@@ -887,7 +887,6 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		config.setTransWidth(320);
 		config.setTransHeight(240);
 		config.setTransFps(1);
-		config.setTransType(MediaCaptureConfig.CaptureTransType.VT_RND_WND);
 		config.setTransFormat(MediaCaptureConfig.TYPE_VIDEO_RAW);
 		String key = "-----BEGIN RSA PRIVATE KEY-----\n" +
                 "MIICXQIBAAKBgQC6pKw/FG9ujxEJb5kRTRAoFNBNO0B7DP9LJ/ME6KI2JAC8utDH\n" +

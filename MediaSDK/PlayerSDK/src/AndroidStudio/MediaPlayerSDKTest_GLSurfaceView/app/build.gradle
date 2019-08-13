@@ -23,7 +23,7 @@ android {
 
 
 dependencies {
-        implementation 'com.vxg.mediasdk:playersdk:2.0.131'
+        implementation 'com.vxg.mediasdk:playersdk:2.0.153'
         implementation 'com.android.support:support-v4:27.1.1'                
 }
 

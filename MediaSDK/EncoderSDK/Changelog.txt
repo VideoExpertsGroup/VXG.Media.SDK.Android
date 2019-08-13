@@ -18,6 +18,18 @@ VXG Mobile Encoder SDK Features :
 VXG Encoder SDK can be used in IPTV, Android streamer of Surevelene system , IP camera on mobile camera, Social network streamer and network streamer.
 Source code of samples can be provided. 
 
+EncoderSDK ver.6.07.20190520
+1. Fixed close state
+
+EncoderSDK ver.6.07.20190520 
+1. Fixed RTMPS streaming to Facebook (save non-blocking flags)
+
+EncoderSDK ver.6.07.20190520
+1. Changed version for openssl. openssl-1.1.1a
+
+EncoderSDK ver.6.07.20190520
+1. Added Zoom and Flash control
+
 MediaCaptureSDK ver.6.06.20181024
 1. fixed crash in RTSP Server 
 
