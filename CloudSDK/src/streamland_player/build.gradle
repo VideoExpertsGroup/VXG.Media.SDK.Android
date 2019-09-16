@@ -33,5 +33,5 @@ dependencies {
     compile 'com.android.support:support-vector-drawable:26.0.1'
     testCompile 'junit:junit:4.12'
 
-    compile 'com.vxg.cloudsdk:cloudsdk:2.0.153'
+    compile 'com.vxg.cloudsdk:cloudsdk:2.0.171'
 }

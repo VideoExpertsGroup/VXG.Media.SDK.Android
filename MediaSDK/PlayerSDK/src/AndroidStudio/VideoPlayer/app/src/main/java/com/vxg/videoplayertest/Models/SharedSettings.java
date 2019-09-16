@@ -89,7 +89,7 @@ public class SharedSettings
  		if (settings == null)
  			settings = PreferenceManager.getDefaultSharedPreferences(m_Context);
 
-		URL = settings.getString("URL", "rtsp://184.72.239.149/vod/BigBuckBunny_115k.mov");
+		URL = settings.getString("URL", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
 		
 		LatencyControl = settings.getInt("LatencyControl", 0);
 

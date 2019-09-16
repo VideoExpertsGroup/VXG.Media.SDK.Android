@@ -138,7 +138,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 
 
 
-		tempHistory.add("rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
 		tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
 
 
@@ -173,7 +173,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		
 		settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
-        strUrl = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov";
+        strUrl = "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov";
 
 
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); 

@@ -460,7 +460,7 @@ public class MainActivity extends Activity implements MediaPlayer.MediaPlayerCal
         videoViewForSW = new SurfaceView(this);
         videoViewForSW.getHolder().addCallback(this);
         
-		strUrl = settings.getString("connectionUrl", "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov");
+		strUrl = settings.getString("connectionUrl", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
 		
 		player.setOnTouchListener(new View.OnTouchListener() 
 		{
@@ -900,7 +900,7 @@ public class MainActivity extends Activity implements MediaPlayer.MediaPlayerCal
 	{
 		ArrayList<String> tempHistory = new ArrayList<String>();
 		
-		tempHistory.add("rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
         tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
 		
 		edtIpAddressHistory = new ArrayList<String>();
