@@ -1,4 +1,4 @@
-<img src="https://www.videoexpertsgroup.com/wp-content/uploads/2019/05/Group-2.2.png" alt="VXGMobileSDK.Android" width="300">
+
 
 # VXG Media SDK for Android
 
@@ -68,5 +68,4 @@ The full SDK documentation can be found here - https://dashboard.videoexpertsgro
    * Capturing raw video up to 30 FPS
    * Capturing raw audio (PCM format)
 
-## Demo screenshots
-<img src="http://www.videoexpertsgroup.com/git/nexus_rtsp.png" alt="RTSP Player sample" width="400">
+
