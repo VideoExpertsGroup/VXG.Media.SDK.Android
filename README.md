@@ -19,7 +19,11 @@ Encoding module can be used for any kind of mobile video broadcasting: home surv
 Source code of samples can be provided.
 
 ## Documentation 
-The full SDK documentation can be found here - https://dashboard.videoexpertsgroup.com/docs/. 
+[Player SDK](Documentation/Android.PlayerSDK.md)
+
+[Encoder SDK](Documentation/Android.EncoderSDK.md)
+
+[Cloud SDK](Documentation/Android.StreamingSDK.md)
 
 ## Media Player
    Main features:
