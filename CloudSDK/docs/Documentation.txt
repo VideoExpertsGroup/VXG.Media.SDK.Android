@@ -13,7 +13,7 @@ VXG SERVER . Live Streaming . Video storage . Playback recorded video
 
 1.2 Documentation
 
-	https://dashboard.videoexpertsgroup.com/docs/#Android.StreamingSDK/#class-cloudstreamersdk
+	https://github.com/VideoExpertsGroup/VXG.Media.SDK.Android/blob/master/Documentation/Android.StreamingSDK.md#class-cloudstreamersdk
 
 
 2. Server Streamer SDK
@@ -26,5 +26,5 @@ VXG SERVER . Live Streaming . Video storage . Playback recorded video
 
 2.2 Documentation
 
-	https://dashboard.videoexpertsgroup.com/docs/#Android.StreamingSDK/#class-cloudplayersdk
+	https://github.com/VideoExpertsGroup/VXG.Media.SDK.Android/blob/master/Documentation/Android.StreamingSDK.md#class-cloudplayersdk
 	
