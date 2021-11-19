@@ -17,8 +17,3 @@
 *  Multi-core decoding provides the dual-core device’s performance 
 
 
-<img src="http://www.videoexpertsgroup.com/git/sample1.png" alt="RTSP player sample1" width="500">
-
-<img src="http://www.videoexpertsgroup.com/git/sample2.png" alt="RTSP player sample1" width="500">
-
-<img src="http://www.videoexpertsgroup.com/git/sample4.png" alt="RTSP player sample1" width="800">

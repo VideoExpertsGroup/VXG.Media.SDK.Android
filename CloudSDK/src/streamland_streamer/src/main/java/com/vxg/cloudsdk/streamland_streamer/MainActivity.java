@@ -10,7 +10,6 @@ package com.vxg.cloudsdk.streamland_streamer;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -21,7 +20,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -47,8 +46,7 @@ import com.vxg.cloudsdk.CloudSDK;
 import com.vxg.cloudsdk.CloudStreamerSDK;
 import com.vxg.cloudsdk.Interfaces.ICloudStreamerCallback;
 import com.vxg.cloudsdk.Interfaces.ICompletionCallback;
-import com.vxg.cloudsdk.Objects.CloudCamera;
-import com.vxg.cloudsdk.Objects.CloudTimeline;
+import com.vxg.cloudsdk.Objects.CloudStreamerConfig;
 import com.vxg.cloudsdk.Objects.CloudTimelineSegment;
 import com.vxg.cloudsdk.Objects.CloudTimelineThumbnail;
 
@@ -270,9 +268,9 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 		capturer = (MediaCapture)findViewById(R.id.captureView);
 
 		if(USE_PORTRAIT_MODE){
-			capturer.getConfig().setvideoOrientation(90); //portrait
+			capturer.getConfig().setVideoOrientation(90); //portrait
 		}else{
-			capturer.getConfig().setvideoOrientation(0); //landscape
+			capturer.getConfig().setVideoOrientation(0); //landscape
 		}
 
 		//audio
@@ -425,6 +423,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 
 			}
 		});
+		mCloudStreamer.getStreamerConfig().useProtocolDefaults(CloudStreamerConfig.ProtocolDefaults.SECURE);
 		mCloudStreamer.setSource(msAccessToken);
 
 

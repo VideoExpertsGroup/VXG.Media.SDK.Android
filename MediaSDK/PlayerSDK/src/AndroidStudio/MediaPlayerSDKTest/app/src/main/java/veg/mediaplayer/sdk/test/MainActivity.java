@@ -15,33 +15,26 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.MulticastLock;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 
 
-import android.support.v4.app.*;
+import androidx.core.app.*;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.inputmethod.InputMethodManager;
 import android.view.WindowManager;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.view.*;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView.OnEditorActionListener;
@@ -51,15 +44,12 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.util.HashMap;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.ArrayList;
 
 import android.preference.PreferenceManager;
 import veg.mediaplayer.sdk.MediaPlayer;
-import veg.mediaplayer.sdk.MediaPlayer.MediaPlayerCallback;
 import veg.mediaplayer.sdk.MediaPlayer.PlayerModes;
 import veg.mediaplayer.sdk.MediaPlayer.PlayerNotifyCodes;
 import veg.mediaplayer.sdk.MediaPlayer.PlayerProperties;
@@ -437,12 +427,13 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		
 		player = (MediaPlayer)findViewById(R.id.playerView);
 		
-		strUrl = settings.getString("connectionUrl", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		strUrl = settings.getString("connectionUrl", "rtsp://rtsp.stream/movie");
 		
 
 		HashSet<String> tempHistory = new HashSet<String>();
 		tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
-		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
 
 		player.setOnTouchListener(new View.OnTouchListener() 
 		{

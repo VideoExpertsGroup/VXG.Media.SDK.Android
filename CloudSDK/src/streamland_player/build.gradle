@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 30
+
     defaultConfig {
         applicationId 'com.vxg.cloudsdk.streamland_player'
         minSdkVersion 17
-        targetSdkVersion 26
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -19,19 +20,22 @@ android {
     productFlavors {
     }
 
-    dexOptions {
-        preDexLibraries = false
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
 dependencies {
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.0.1'
-    compile 'com.android.support:design:26.0.1'
-    compile 'com.android.support:support-vector-drawable:26.0.1'
-    testCompile 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
 
-    compile 'com.vxg.cloudsdk:cloudsdk:2.0.171'
+    implementation 'com.vxg.cloudsdk:cloudsdk:'
 }

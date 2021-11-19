@@ -2491,7 +2491,7 @@ public class MainActivity extends Activity implements AddChannelDialogListener, 
 
             case R.id.action_send_log:
                 Logger log = new Logger(this);
-                log.sendLogByEmail("maxim@videoexpertsgroup.com", "", ""); // "maxim@videoexpertsgroup.com"
+                //log.sendLogByEmail("", "", ""); 
                 return true;
 
             case R.id.action_exit:

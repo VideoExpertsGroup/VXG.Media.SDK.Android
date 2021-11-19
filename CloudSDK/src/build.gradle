@@ -1,4 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    cloudsdk_ver = project.hasProperty('cloudsdk_ver') ? project.getProperty('cloudsdk_ver') : "2.0.283"
+    playersdk_ver = project.hasProperty('playersdk_ver') ? project.getProperty('playersdk_ver') : "6.96.20211115"
+}
 
 buildscript {
     repositories {
@@ -6,10 +10,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.android.tools.build:gradle:7.0.3'
     }
 }
 
@@ -18,12 +19,44 @@ allprojects {
         jcenter()
         google()
         maven {
+            credentials {
+                username "developer"
+                password "developer1"
+            }
             url 'http://android.vxg.io/repository/internal/'
             name 'VXG'
+            allowInsecureProtocol true
         }
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+subprojects {
+    // Force dependencies version for all subprojects
+    configurations.all {
+        resolutionStrategy {
+            force "com.vxg.mediasdk:playersdk:$project.playersdk_ver"
+            force "com.vxg.cloudsdk:cloudsdk:$project.cloudsdk_ver"
+        }
+    }
+
+    // Examples apk names instead of app-debug.apk
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            project.android.applicationVariants.all { variant ->
+                def appName
+                //Check if an applicationName property is supplied; if not use the name of the parent project.
+                logger.quiet("Project: {}", project)
+                if (project.hasProperty("archivesBaseName:")) {
+                    appName = archivesBaseName
+                } else {
+                    appName = project.name
+                }
+
+                variant.outputs.all { output ->
+                    logger.quiet("Apk name {}", "${appName}-${output.baseName}-${variant.versionName}.apk")
+                    outputFileName = "${appName}-${output.baseName}-${variant.versionName}.apk"
+                }
+            }
+        }
+    }
 }

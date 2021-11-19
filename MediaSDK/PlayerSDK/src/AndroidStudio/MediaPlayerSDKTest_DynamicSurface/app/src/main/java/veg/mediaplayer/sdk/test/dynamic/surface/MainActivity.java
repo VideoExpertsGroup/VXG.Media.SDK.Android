@@ -134,10 +134,11 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		
 		settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
-		strUrl = settings.getString("connectionUrl", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		strUrl = settings.getString("connectionUrl", "rtsp://rtsp.stream/movie");
 
 		HashSet<String> tempHistory = new HashSet<String>();
-		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
 		tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
 
 		edtIpAddressHistory = settings.getStringSet("connectionHistory", tempHistory);

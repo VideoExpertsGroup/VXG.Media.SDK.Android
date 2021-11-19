@@ -1,2 +1,2 @@
 Documentation
-https://dashboard.videoexpertsgroup.com/docs/#Android.PlayerSDK/
+https://docs.vxg.io/#Android.PlayerSDK/

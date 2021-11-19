@@ -3,9 +3,9 @@ VXG Mobile Encoder SDK Features :
 - RTMP/RTMPS publish 
 - RTSP server
 - RTP by TCP and UDP; RTP over HTTP tunnel
-- Multi-channel support – simultaneous encoding of 2 streams: Main and Secondary channels.
-- Hardware acceleration – a new hardware accelerated encoder up to UHD resolution.
-- Low latency for network stream – special API to control encoder latency.
+- Multi-channel support ï¿½ simultaneous encoding of 2 streams: Main and Secondary channels.
+- Hardware acceleration ï¿½ a new hardware accelerated encoder up to UHD resolution.
+- Low latency for network stream ï¿½ special API to control encoder latency.
 - AAC and G.711 audio codecs
 - H.264 video codes
 - Encrypted channel (RTP over HTTPS tunnel)
@@ -18,17 +18,14 @@ VXG Mobile Encoder SDK Features :
 VXG Encoder SDK can be used in IPTV, Android streamer of Surevelene system , IP camera on mobile camera, Social network streamer and network streamer.
 Source code of samples can be provided. 
 
-EncoderSDK ver.6.07.20190520
-1. Fixed close state
-
-EncoderSDK ver.6.07.20190520 
-1. Fixed RTMPS streaming to Facebook (save non-blocking flags)
-
-EncoderSDK ver.6.07.20190520
-1. Changed version for openssl. openssl-1.1.1a
-
-EncoderSDK ver.6.07.20190520
-1. Added Zoom and Flash control
+Version 6.12.20211118
+1. added support for: gradle 7, Androdid SDK 30, Android NDK 23, Java 8
+2. migrated to FFMPEG version 4.4.1
+3. migrated to OpenSSL version 1.1.1l and used as a shared library
+4. camera video preview modes exposed to public config API
+5. improved overlay support
+6. improved error handling
+7. updated and cleaned samples
 
 MediaCaptureSDK ver.6.06.20181024
 1. fixed crash in RTSP Server 
@@ -39,7 +36,7 @@ MediaCaptureSDK ver.6.06.20180724
 3. shared ffmpeg with VXG.MediaPlayerSDK, platforms arm64-v8a armeabi armeabi-v7a x86 added
 4. added ALAW/MULAW audio codec configurations
 5. VR_1920x1200 resolution added
-- Added support platforms armeabi, armeabi-v7a, x86, arm64-v8a
+6. Added support platforms armeabi, armeabi-v7a, x86, arm64-v8a
 
 
 MediaCaptureSDK ver.6.05.20180515 

@@ -14,7 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -225,10 +225,11 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		
 		settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
-		strUrl = settings.getString("connectionUrl", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		strUrl = settings.getString("connectionUrl", "rtsp://rtsp.stream/movie");
 
 		HashSet<String> tempHistory = new HashSet<String>();
-		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
 		tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
 
 		edtIpAddressHistory = settings.getStringSet("connectionHistory", tempHistory);
@@ -315,7 +316,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 	private void VXGEncoderOpen()
 	{
 		capture = (MediaCapture) findViewById(R.id.captureView);
-		capture.getConfig().setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_SURFACE.val());
+		capture.getConfig().setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_SURFACE.val() | MediaCaptureConfig.CaptureSources.PP_MODE_OFFSCREEN_SURFACE.val());
 		capture.getConfig().setStreaming(false);
 		capture.getConfig().setRecording(false);
 		capture.getConfig().setTranscoding(false);

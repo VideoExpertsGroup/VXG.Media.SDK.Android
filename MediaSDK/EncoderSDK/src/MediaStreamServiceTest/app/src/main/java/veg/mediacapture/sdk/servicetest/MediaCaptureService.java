@@ -1,30 +1,29 @@
 package veg.mediacapture.sdk.servicetest;
 
-import android.app.ActivityManager;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Binder;
-import android.os.IBinder;
-import android.os.Environment;
-import android.util.Log;
 import android.os.Build;
+import android.os.Environment;
+import android.os.IBinder;
+import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import veg.mediacapture.sdk.MediaCapture;
 import veg.mediacapture.sdk.MediaCapture.CaptureNotifyCodes;
-import veg.mediacapture.sdk.MediaCapture.CaptureState;
 import veg.mediacapture.sdk.MediaCapture.PlayerRecordFlags;
-import veg.mediacapture.sdk.MediaCapture.PlayerRecordStat;
 import veg.mediacapture.sdk.MediaCaptureCallback;
 import veg.mediacapture.sdk.MediaCaptureConfig;
-import veg.mediacapture.sdk.MediaCaptureConfig.CaptureModes;
 import veg.mediacapture.sdk.MediaCaptureConfig.CaptureVideoResolution;
 
 
@@ -82,8 +81,8 @@ public class MediaCaptureService extends Service {
 			config.setTranscoding(false);
 
 			//set portrait
-			config.setvideoOrientation(MediaCaptureConfig.MC_ORIENTATION_PORTRAIT);
-			//config.setvideoOrientation(MediaCaptureConfig.MC_ORIENTATION_LANDSCAPE);
+			config.setVideoOrientation(MediaCaptureConfig.MC_ORIENTATION_PORTRAIT);
+			//config.setVideoOrientation(MediaCaptureConfig.MC_ORIENTATION_LANDSCAPE);
 
 			//set camere facing
 			config.setCameraFacing(MediaCaptureConfig.CAMERA_FACING_BACK);
@@ -94,7 +93,7 @@ public class MediaCaptureService extends Service {
 
 
 			//main channel
-			config.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_OFFSCREEN_SURFACE.val());
+			config.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_VIRTUAL_DISPLAY.val());
 			config.setStreamType(MediaCaptureConfig.StreamerTypes.STREAM_TYPE_RTMP_PUBLISH.val());
 			config.setUrl(rtmp_url);
 			config.setVideoResolution(MediaCaptureConfig.CaptureVideoResolution.VR_640x480);
@@ -256,6 +255,11 @@ public class MediaCaptureService extends Service {
 					return 0;
 				}
 			};
+
+			/* Screen Capture Android permission data obtained in MainActivity.onActivityResult() */
+			int resultCode = intent.getIntExtra("resultCode", 0);
+			capturer.SetPermissionRequestResults(resultCode, intent);
+
 			capturer.Open(config, captureCallback);
 
 			runner = new Runner(startId);
@@ -303,9 +307,34 @@ public class MediaCaptureService extends Service {
 		}
 	}
 
+	private void startMyOwnForeground(){
+		String NOTIFICATION_CHANNEL_ID = "com.example.simpleapp";
+		String channelName = "My Background Service";
+		NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+		chan.setLightColor(Color.BLUE);
+		chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+		NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		assert manager != null;
+		manager.createNotificationChannel(chan);
+
+		NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+		Notification notification = notificationBuilder.setOngoing(true)
+				.setSmallIcon(R.drawable.ic_fiber_manual_record_red)
+				.setContentTitle("App is running in background")
+				.setPriority(NotificationManager.IMPORTANCE_MIN)
+				.setCategory(Notification.CATEGORY_SERVICE)
+				.build();
+		startForeground(2, notification);
+	}
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+			startMyOwnForeground();
+		else
+			startForeground(1, new Notification());
+
 		nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 	}
 

@@ -1,1 +1,1 @@
-https://dashboard.videoexpertsgroup.com/docs/#Android.PlayerSDK/#buffering
+https://docs.vxg.io/#Android.PlayerSDK/#buffering

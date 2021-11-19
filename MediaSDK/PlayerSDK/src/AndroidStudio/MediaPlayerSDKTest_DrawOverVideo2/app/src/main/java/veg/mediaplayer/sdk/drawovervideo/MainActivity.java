@@ -30,7 +30,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -524,7 +524,8 @@ public class MainActivity extends Activity
         ArrayList<String> tempHistory = new ArrayList<String>();
 
         tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
-        tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+        tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
 
         edtIpAddressHistory.clear();
         edtIpAddressHistory.addAll(tempHistory);

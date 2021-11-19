@@ -1,1 +1,1 @@
-https://dashboard.videoexpertsgroup.com/docs/#Android.PlayerSDK/#backward-audio
+https://docs.vxg.io/#Android.PlayerSDK/#backward-audio

@@ -1,27 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "veg.mediaplayer.sdk.test.getdata_norenderer"
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 30
+
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'arm64-v8a'
+        }
+
     }
 
     buildTypes {
         debug {
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def apk = output.outputFile;
-                    File unaligned = output.packageApplication.outputFile;
-
-
-                    output.outputFile = new File(apk.parentFile,getAppName().toString().replace(" ",".")+".apk");
-
-                    unaligned.delete();
-                }
-            }
         }
         release {
             minifyEnabled false
@@ -29,30 +23,17 @@ android {
         }
     }
 
-    sourceSets.main {
-        jniLibs.srcDir '../../../../libs/'
-    }
-    productFlavors {
-        armv7_armeabi_x86 {
-            ndk {
-                abiFilter "armeabi-v7a"
-                abiFilter "armeabi"
-                abiFilter "x86"
-            }
-        }
+    compileOptions {
+       sourceCompatibility 1.8
+       targetCompatibility 1.8
     }
 }
 
 dependencies {
-
-    implementation files('../../../../libs/mediaplayersdk.jar')
-    implementation files('./src/main/libs/google-play-services.jar')
+    implementation 'com.vxg.mediasdk:playersdk:6.96.20211118'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
 }
 
-def getAppName() {
-    def stringsFile = android.sourceSets.main.res.sourceFiles.find { it.name.equals 'strings.xml' }
-    return new XmlParser().parse(stringsFile).string.find { it.@name.equals 'app_name' }.text()
-}
 
 
 

@@ -10,7 +10,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_short_name"
         android:largeHeap="true"
-        android:debuggable="true"
          >
         <activity android:name="veg.mediaplayer.sdk.drawovervideo.MainActivity"
              	  android:noHistory="false"

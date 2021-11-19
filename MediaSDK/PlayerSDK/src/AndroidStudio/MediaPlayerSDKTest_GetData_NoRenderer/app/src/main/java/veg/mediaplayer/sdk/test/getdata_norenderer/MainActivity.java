@@ -135,13 +135,9 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 
     protected void loadHistory(boolean withSaved) {
         ArrayList<String> tempHistory = new ArrayList<String>();
-
-
-
-		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
 		tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
-
-
 		edtIpAddressHistory.addAll(tempHistory);
         edtIpAddress.setText(tempHistory.get(0));
     }
@@ -173,7 +169,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		
 		settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
-        strUrl = "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov";
+        strUrl = "rtsp://rtsp.stream/movie";
 
 
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); 

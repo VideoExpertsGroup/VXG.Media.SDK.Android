@@ -1,15 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 30
 
     defaultConfig {
 	applicationId "org.rtspplayer.sample"
         minSdkVersion 17
-        targetSdkVersion 26
-
-
-
+        targetSdkVersion 30
     }
 
     lintOptions {
@@ -25,13 +22,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    compileOptions {
+       sourceCompatibility 1.8
+       targetCompatibility 1.8
+    }
 }
 
 
 dependencies {
-        implementation 'com.vxg.mediasdk:playersdk:2.0.171'
-	implementation 'com.android.support:appcompat-v7:25.0.1'
-	implementation 'com.android.support:support-v4:27.1.1'
-	compile files('./src/main/libs/org.apache.http.legacy.jar')
+    implementation 'com.vxg.mediasdk:playersdk:6.96.20211118'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation(files('./src/main/libs/org.apache.http.legacy.jar'))
 }
 

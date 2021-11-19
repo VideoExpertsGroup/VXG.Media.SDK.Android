@@ -460,7 +460,7 @@ public class MainActivity extends Activity implements MediaPlayer.MediaPlayerCal
         videoViewForSW = new SurfaceView(this);
         videoViewForSW.getHolder().addCallback(this);
         
-		strUrl = settings.getString("connectionUrl", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		strUrl = settings.getString("connectionUrl", "rtsp://rtsp.stream/movie");
 		
 		player.setOnTouchListener(new View.OnTouchListener() 
 		{
@@ -898,20 +898,21 @@ public class MainActivity extends Activity implements MediaPlayer.MediaPlayerCal
 
 	protected void loadHistory(boolean withSaved)
 	{
-		ArrayList<String> tempHistory = new ArrayList<String>();
-		
-		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+	    ArrayList<String> tempHistory = new ArrayList<String>();
+	   
+	    tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
         tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
 		
-		edtIpAddressHistory = new ArrayList<String>();
-        edtIpAddressHistory.addAll(tempHistory);
-        if (withSaved)
-        {
-            Set<String> savedHistory = settings.getStringSet("connectionHistory", null);
-            edtIpAddressHistory.addAll(savedHistory);
-        }
+	    edtIpAddressHistory = new ArrayList<String>();
+            edtIpAddressHistory.addAll(tempHistory);
+            if (withSaved)
+            {
+                Set<String> savedHistory = settings.getStringSet("connectionHistory", null);
+                edtIpAddressHistory.addAll(savedHistory);
+            }
 
-        edtIpAddress.setText(tempHistory.get(0));
+            edtIpAddress.setText(tempHistory.get(0));
 	}
 	
 	protected void setUIDisconnected()

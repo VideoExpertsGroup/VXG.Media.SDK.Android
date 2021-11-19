@@ -1,1 +1,1 @@
-https://dashboard.videoexpertsgroup.com/docs/#Android.EncoderSDK/
+https://docs.vxg.io/#Android.EncoderSDK/

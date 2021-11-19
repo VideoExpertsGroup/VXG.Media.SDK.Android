@@ -1,1 +1,1 @@
-https://dashboard.videoexpertsgroup.com/docs/#Android.PlayerSDK/#onvif
+https://docs.vxg.io/#Android.PlayerSDK/#onvif

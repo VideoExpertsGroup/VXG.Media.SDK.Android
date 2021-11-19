@@ -435,7 +435,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		//record only
 		//player_record = new MediaPlayer(this, false);
 
-		strUrl = settings.getString("connectionUrl", "rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		strUrl = settings.getString("connectionUrl", "rtsp://rtsp.stream/movie");
 		
 		//SurfaceHolder sfhTrackHolder = player.getSurfaceView().getHolder();
 		//sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
@@ -443,7 +443,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaPlay
 		HashSet<String> tempHistory = new HashSet<String>();
 
 		tempHistory.add("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
-		tempHistory.add("rtsp://3.84.6.190/vod/mp4:BigBuckBunny_115k.mov");
+		tempHistory.add("rtsp://rtsp.stream/movie");
+		tempHistory.add("rtsp://rtsp.stream/pattern");
 
         faceDetector = new FaceDetector.Builder(getApplicationContext())
                 .setTrackingEnabled(false)

@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     xmlns:card_view="http://schemas.android.com/tools"
                     android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                                 android:textColor="@android:color/black" />
                         </FrameLayout>
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

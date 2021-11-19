@@ -1,5 +1,6 @@
 package veg.mediacapture.sdk.test;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
@@ -7,8 +8,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.MulticastLock;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -20,7 +25,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
@@ -28,9 +32,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Build;
 
+import androidx.core.app.ActivityCompat;
+
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 
@@ -45,39 +53,25 @@ import veg.mediacapture.sdk.MediaCaptureConfig.CaptureModes;
 import veg.mediacapture.sdk.MediaCaptureConfig.CaptureVideoResolution;
 import veg.mediacapture.sdk.test.demo.R;
 
-import android.graphics.Bitmap;
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import android.os.Looper;
-import java.io.BufferedOutputStream;
-import android.graphics.Matrix;
-import android.os.Build;
-import android.Manifest;
-import android.os.Build;
 //import android.support.v4.app.ActivityCompat;
 //import android.support.v4.content.ContextCompat;
-import android.content.pm.PackageManager;
-import android.media.AudioManager;
-import android.media.MediaRecorder;
 
 
 public class MainActivity extends Activity implements MediaCaptureCallback
 {
     private static final String TAG 	 = "MediaCaptureTest";
     
-    private static final boolean TEST_SEPARATED_CONTROL = true;
-	private static final boolean USE_PORTRAIT_MODE = true;
+    private static final boolean TEST_SEPARATED_CONTROL = false;
+	private static final boolean USE_PORTRAIT_MODE = false;
 
 	private static final boolean GET_JPEG_ON_START = false;
-
+    
     private SharedPreferences settings=null;
     
     private MediaCapture 				capturer = null;
     private boolean 					misAudioEnabled=true;
     private boolean						misSurfaceCreated = false;
 	private boolean						USE_RTSP_G711=false;
-	private boolean						record_status = false;
     
     private boolean 					misRecfileEnabled=true;
     private boolean 					misTranscodingEnabled=true;
@@ -113,7 +107,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 	    public void handleMessage(Message msg) 
 	    {
 	    	CaptureNotifyCodes status = (CaptureNotifyCodes) msg.obj;
-    		Log.i(TAG, "=Status handleMessage status="+status);
+    		//Log.i(TAG, "=Status handleMessage status="+status);
 
     		String strText = null;
 
@@ -122,13 +116,6 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 	        	case CAP_OPENED:
 	        		strText = "Opened";
 	        		break;
-				case CAP_RECORD_STOPPED:
-					captureStatusText2.setText("REC OFF");
-					record_status = false;
-					break;
-				case CAP_RECORD_STARTED:
-					record_status = true;
-					break;
 	        	case CAP_SURFACE_CREATED:
 	        		strText = "Camera surface created surfaceView="+capturer.getSurfaceView();
 	        		misSurfaceCreated = true;
@@ -214,8 +201,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 						 
 						 captureStatusText.setText(sss);
 						 captureStatusStat.setText(sss2);
-						 if (record_status == true)
-							 captureStatusText2.setText(sss3);
+						 captureStatusText2.setText(sss3);
 					 }
 	        		break;
 
@@ -235,7 +221,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		if (handler == null || status == null)
 			return 0;
 		
-		//Log.v(TAG, "=OnCaptureStatus status=" + CaptureNotifyCodes.forValue(arg));
+		//Log.v(TAG, "=OnCaptureStatus status=" + arg);
 	    switch (CaptureNotifyCodes.forValue(arg)) 
 	    {
 	        default:     
@@ -450,20 +436,21 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		//get library version
 		Log.v(TAG, "=>onCreate MediaCapture::getLibVersion()="+MediaCapture.getLibVersion());
 
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
 				checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
 				checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
 				checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
 				) {
-                Activity.requestPermissions(this, new String[]{
+				ActivityCompat.requestPermissions(this, new String[]{
 					Manifest.permission.CAMERA, 
 					Manifest.permission.RECORD_AUDIO, 
 					Manifest.permission.READ_EXTERNAL_STORAGE, 
 					Manifest.permission.WRITE_EXTERNAL_STORAGE
 					}, 1);
             }
-        }*/
+		}
+
 
 		// Prevents the phone to go to sleep mode
 		PowerManager pm = (PowerManager) getApplicationContext().getSystemService(Context.POWER_SERVICE);
@@ -540,7 +527,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 
 		load_config();
 
-		capturer.RequestPermission(this);
+		capturer.RequestPermission(this, mConfig.getCaptureSource());
 
 		if (mConfig.getCaptureSource() != MediaCaptureConfig.CaptureSources.PP_MODE_VIRTUAL_DISPLAY.val())
 			capturer.Open(null, this);
@@ -600,7 +587,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 									  {
 											capturer.StartRecording();
 									  }
-								}, 500);
+								}, 10000);
 
 								//start postponed rec
 								new Handler().postDelayed(new Runnable()
@@ -610,7 +597,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 									  {
 											capturer.StartTranscoding();
 									  }
-								}, 1000);
+								}, 20000);
 
 							}
 
@@ -767,7 +754,7 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 
 		config.setAudioSource(MediaRecorder.AudioSource.MIC);
 */
-		rtmp_url= "rtmp://u1m27c27:test@10.20.16.128:1935/push/u1m27c27_rtmppublish";
+
 		
 		if(is_rtsp){
 			String rtsp_url = "rtsp://@:"+settings.getString("urlport", "5540");
@@ -787,9 +774,9 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		*/
 		
 		if(USE_PORTRAIT_MODE){
-			config.setvideoOrientation(90); //portrait
+			config.setVideoOrientation(90); //portrait
 		}else{
-			config.setvideoOrientation(0); //landscape
+			config.setVideoOrientation(0); //landscape
 		}
 		config.setVideoFramerate(30);
 		config.setVideoKeyFrameInterval(1);
@@ -866,13 +853,9 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		//if(is_rtsp)
 		//	misRecfileEnabled = false;
 		//misRecfileEnabled = true;
-		if(false)
-		{
-			config.setUseSec(true);
-			config.setUseSecRecord(true);
-			config.setRecordPrefixSec("secondary");
-		}
-		
+		config.setUseSec(true);
+		config.setUseSecRecord(true);
+		config.setRecordPrefixSec("secondary");
 		config.setRecording(misRecfileEnabled);
 		int record_flags = get_record_flags();
 		int rec_split_time = ( (record_flags & PlayerRecordFlags.forType(PlayerRecordFlags.PP_RECORD_SPLIT_BY_TIME)) != 0)? 30:0; //30 sec	
@@ -1057,29 +1040,6 @@ public class MainActivity extends Activity implements MediaCaptureCallback
 		inflater.inflate(R.menu.menu, menu);
 		return true;
     }
-
-  	@Override
-	public boolean onTouchEvent(MotionEvent event)
-  		{
-
-		if (event.getAction() == MotionEvent.ACTION_DOWN)
-		new Handler().postDelayed(new Runnable()
-		{
-				@Override
-			public void run()
-			  {
-			  		if (record_status == true)
-						capturer.StopRecording();
-					else
-						capturer.StartRecording();
-			  }
-		}, 0);
-
-
-		return true;
-	}
-
-	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)  

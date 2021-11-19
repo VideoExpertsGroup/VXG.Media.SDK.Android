@@ -10,17 +10,16 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.IBinder;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.net.Inet4Address;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import veg.mediacapture.sdk.MediaCapture;
 import veg.mediacapture.sdk.MediaCaptureConfig;
@@ -86,6 +85,24 @@ public class MainActivity extends AppCompatActivity {
 	};
 
 	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (requestCode != MediaCapture.PERMISSION_CODE) {
+			//Toast.makeText(this, "Unknown request code: " + requestCode, Toast.LENGTH_SHORT).show();
+			return;
+		}
+		if (resultCode != RESULT_OK) {
+			Toast.makeText(this, "Screen Cast Permission Denied", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		Log.i(TAG, "Get media projection with the new permission");
+
+		serviceIntent.putExtra("resultCode", resultCode);
+		serviceIntent.putExtras(data);
+	}
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -122,6 +139,12 @@ public class MainActivity extends AppCompatActivity {
 				}, 1);
 			}
 		}
+
+		/* Request VirtualDisplay permission */
+		MediaCapture capture = new MediaCapture(this, null);
+		MediaCaptureConfig conf = capture.getConfig();
+		conf.setCaptureSource(MediaCaptureConfig.CaptureSources.PP_MODE_VIRTUAL_DISPLAY.val());
+		capture.RequestPermission(this, conf.getCaptureSource());
 
 		button_open.setOnClickListener(new View.OnClickListener() {
 			@Override

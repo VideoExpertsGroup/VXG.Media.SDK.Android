@@ -1,1 +1,2 @@
-include ':streamland_player', ':streamland_streamer'
+include ':streamland_player',
+        ':streamland_streamer'

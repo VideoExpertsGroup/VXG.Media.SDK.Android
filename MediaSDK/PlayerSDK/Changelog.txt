@@ -10,8 +10,8 @@ Mobile Player SDK Features :
 - Stream playback : Multicast/Unicast UDP, HTTP and HTTPS tunnneling for RTSP
 - Supported file formats : AVI, 3GP, M4V, MP4, WMV, FLV, MPEG, MPG, MOV, RM, VOB, ASF, MKV, F4V, TRP, TS, TP and so on
 - Supported Network protocols : HTTP-HLS, RTSP, RTP, UDP (Multicast stream support), RTMP, MMS and so on
-- Smart and online thumbnails – quick and simple API to get a thumbnail for local files and network streams
-- Low latency for network stream – special API to control playback latency
+- Smart and online thumbnails ï¿½ quick and simple API to get a thumbnail for local files and network streams
+- Low latency for network stream ï¿½ special API to control playback latency
 
 SDK can be used in IPTV, Android clien of Surevelene system , IP camera viewers , TV player and other kind of applications with video playback.
 Source code of samples can be provided. 
@@ -20,30 +20,20 @@ Source code of samples can be provided.
 ----------------
 Changes log
 ----------------
-Version 6.96.20190807
-- Fixed recording in record only mode, if trim not specified
-- Added new sample DrawOverVideo
-
-Version 6.95.20190712
-- Added LOW_DELAY flag in s/w decoder if decoder_latency is ON
-- WebRTC: Do not wait for recvonly media on start
-- Fixed issue in playlist parser on 64-bit systems
-- Added check for interruption on mediaformat_find_stream_info stage
-- WebRTC: Use copy buffer for webrtc backward audio
-- Fixed subtitle pointer typos
-- Fixed crash for rtsp content provider if wrong sprops received
-- Fixed: skip rtp packets with unknown payload type
-- WebRTC: Added pts validation
-
-Version 6.94.20190523
-- Changed version for openssl . openssl-1.1.1a
-
-Version 6.93.20190507
-- Fixed crash with multi players and rtsp source
-- Get_Range works woth npt time.
-- Fixed crash for rtsp content provider if wrong sprops received
-- skip rtp packets with unknown payload type
-- Fixed issue with get range when npt comes from RTSP server
+Version 6.96.20211118
+- added support for: gradle 7, Androdid SDK 30, Android NDK 23, Java 8
+- migrated to FFMPEG version 4.4.1
+- migrated to OpenSSL version 1.1.1l and used as a shared library
+- added ONVIF device manager
+- added new API for setup internal buffers type: 0 - default, 1 - based on mmap
+- added new API for setup internal buffers sizes
+- added new config setting: advancedUseAsyncGetAddrInfo
+- improved EOS detection algorithm
+- added support audio only mode for instance with video surface
+- fixed Software video decoder crash on YUV P10 formats
+- fixed records flags for mp4
+- fixed issue with wrong shader matrix for 180 and 270 rotation
+- updated and cleaned samples
 
 Version 6.91.20190312 
 - Fixed : PTS is calculated based on range_start_offset
@@ -96,13 +86,13 @@ Version 6.45.20180821
 - test app MediaPlayerSDKTest_AudioBackward added
 
 Version 6.27.20180522
-- Improved Android Samples: AARs are used from repository http://exchange.videoexpertsgroup.com:8080/repository/internal/
+- Improved Android Samples: AARs are used from repository http://android.vxg.io//repository/internal/ 
 - Added support platforms armeabi, armeabi-v7a, x86, arm64-v8a
   Latest package :
-  compile 'com.vxg.mediasdk:playersdk:2.0.55'
+  compile 'com.vxg.mediasdk:playersdk:2.0.55'  
 
 Version 6.05.20180411
-- Improved Android Samples: AARs are used from repository http://exchange.videoexpertsgroup.com:8080/repository/internal/
+- Improved Android Samples: AARs are used from repository http:/android.vxg.io//repository/internal/
   Latest packages :
   compile 'com.vxg.mediasdk:playersdk:2.0.37'
   compile 'com.vxg.mediasdk:encodersdk:2.0.37'
