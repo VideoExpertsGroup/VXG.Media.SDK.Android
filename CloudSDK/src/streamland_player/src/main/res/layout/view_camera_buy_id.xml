@@ -27,14 +27,31 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-			<Button
+			<RelativeLayout
+			   android:layout_width="fill_parent"
+			   android:layout_height="wrap_content"
+			   >
+
+			   <Button
 				android:id="@+id/but_show_timeline"
 				android:layout_width="150dp"
 				android:layout_height="40dp"
-				android:text="show timeline"
+				android:layout_alignParentLeft="true"
+				   android:layout_gravity="start"
+				   android:text="show timeline"
 				android:textColor="#ffffff"
-				android:layout_gravity="center"
-				/>
+/>
+
+			   <Button
+				android:id="@+id/but_record"
+				   android:layout_width="150dp"
+				   android:layout_height="40dp"
+				   android:layout_alignParentRight="true"
+				   android:layout_gravity="right"
+				   android:text="START RECORD"
+				   android:textColor="#ffffff" 	/>
+
+</RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout1"

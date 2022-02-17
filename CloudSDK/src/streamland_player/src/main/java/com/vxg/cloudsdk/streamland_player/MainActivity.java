@@ -17,6 +17,7 @@ import android.net.wifi.WifiManager.MulticastLock;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.util.Pair;
 import android.view.KeyEvent;
@@ -36,15 +37,18 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
+import com.vxg.cloud.core.CloudHelpers;
 import com.vxg.cloudsdk.CloudPlayerSDK;
 import com.vxg.cloudsdk.CloudSDK;
 import com.vxg.cloudsdk.Enums.CloudPlayerEvent;
+import com.vxg.cloudsdk.Enums.CloudPlayerLocalRecordFlag;
 import com.vxg.cloudsdk.Interfaces.ICloudObject;
 import com.vxg.cloudsdk.Interfaces.ICloudPlayerCallback;
 import com.vxg.cloudsdk.Objects.CloudPlayerConfig;
 import com.vxg.ui.CloudPlayerView;
 import com.vxg.ui.TimeLineSet;
 
+import java.io.File;
 import java.util.List;
 
 public class MainActivity extends Activity implements OnClickListener, CloudPlayerView.OnCloudPlayerViewChange
@@ -54,6 +58,9 @@ public class MainActivity extends Activity implements OnClickListener, CloudPlay
 	public  static		AutoCompleteTextView	edtId;
 	private Button		btnConnect;
 	private Button 		btnShowTimeline;
+
+	private Button 		btnRecord;
+	private boolean     isRecording = false;
 	private View 		viewLayout_info;
 
 	private CloudPlayerView player;
@@ -94,6 +101,48 @@ public class MainActivity extends Activity implements OnClickListener, CloudPlay
 
 		player = (CloudPlayerView) findViewById(R.id.player_view);
 		player.setOnCloudPlayerViewChange(this);
+		player.setNotificationsListener(new CloudPlayerView.Notifications() {
+			@Override
+			public int onSharedTokenWillExpireIn(long deltaTimeInMs) {
+				Log.e(TAG, "onSharedTokenWillExpireIn: " + deltaTimeInMs);
+				return 0;
+			}
+
+			@Override
+			public int onLocalRecordStarted() {
+				Log.d(TAG,"onLocalRecordStarted: ");
+				isRecording = true;
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						btnRecord.setText("STOP RECORD");
+					}
+				});
+
+				return 0;
+			}
+
+			@Override
+			public int onLocalRecordStopped(String path) {
+				Log.d(TAG,"onLocalRecordStopped: path: " + path);
+				isRecording = false;
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						btnRecord.setText("START RECORD");
+					}
+				});
+				return 0;
+			}
+
+			@Override
+			public int onLocalRecordClosed() {
+				Log.d(TAG,"onLocalRecordClosed: ");
+				isRecording = false;
+				return 0;
+			}
+		});
+
 		playerSDK = player.getCloudPlayerSDK();
 
 		player.setTimeLineEnabled(true);
@@ -125,6 +174,19 @@ public class MainActivity extends Activity implements OnClickListener, CloudPlay
 				} else {
 					player.hideTimeLine();
 					btnShowTimeline.setText("show timeline");
+				}
+			}
+		});
+
+		btnRecord =(Button) findViewById(R.id.but_record);
+		btnRecord.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isRecording) {
+					playerSDK.localRecordStop();
+				} else {
+					playerSDK.localRecordSetup(getRecordPath(), CloudPlayerLocalRecordFlag.NO_START.value, 0, 0, "TestRecord");
+					playerSDK.localRecordStart();
 				}
 			}
 		});
@@ -192,6 +254,15 @@ public class MainActivity extends Activity implements OnClickListener, CloudPlay
 		try{
 			if(!check_access_token())
 				return ;
+
+			// set auto started record
+			CloudPlayerConfig config = playerSDK.getCloneConfig();
+			config.localRecordPath(getRecordPath());
+			config.localRecordFlags(CloudPlayerLocalRecordFlag.AUTO_START.value | CloudPlayerLocalRecordFlag.SPLIT_BY_TIME.value);
+			config.localRecordSplitTime(30);
+			config.localRecordPrefix("AutoTestRecord");
+			playerSDK.setConfig(config);
+
 			playerSDK.setSource(msAccessToken);
 			player.play();
 
@@ -201,6 +272,20 @@ public class MainActivity extends Activity implements OnClickListener, CloudPlay
 		}
     }
  
+	private String getRecordPath()
+	{
+		File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+				Environment.DIRECTORY_DCIM), "RecordsMediaPlayer");
+
+		if (! mediaStorageDir.exists()){
+			if (!(mediaStorageDir.mkdirs() || mediaStorageDir.isDirectory())){
+				Log.e(TAG, "<=getRecordPath() failed to create directory path="+mediaStorageDir.getPath());
+				return "";
+			}
+		}
+		return mediaStorageDir.getPath();
+	}
+
   	@Override
   	protected void onDestroy() 
   	{
