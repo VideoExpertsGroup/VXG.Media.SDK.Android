@@ -11,6 +11,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
@@ -94,6 +95,7 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 	//SET Channel
 	String msAccessToken = "";
 
+	private SharedPreferences sharedPref = null;
 
 	public boolean isRec(){
 		return ( capturer != null && capturer.getState() == MediaCapture.CaptureState.Started );
@@ -224,6 +226,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 		setTitle(R.string.app_name);
 		super.onCreate(savedInstanceState);
 
+		sharedPref = getPreferences(Context.MODE_PRIVATE);
+
 		PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
 		mWakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "com.vxg.cloudsdk.streamland_streamer");
 
@@ -291,6 +295,13 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 			public void onStarted(String surl) {
 				Log.v(TAG, "=>onStarted surl="+surl);
 				rtmp_url = surl;
+
+				String config = mCloudStreamer.getConfig();
+				Log.v(TAG, "TestConfig: save config: " + config);
+				SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString("config", config);
+				editor.apply();
+
 				capturer.getConfig().setUrl(surl);
 				capturer.StartStreaming();
 			}
@@ -424,8 +435,12 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 			}
 		});
 		mCloudStreamer.getStreamerConfig().useProtocolDefaults(CloudStreamerConfig.ProtocolDefaults.SECURE);
+		String config = sharedPref.getString("config", "");
+		if (!config.isEmpty()) {
+			Log.v(TAG, "TestConfig: restore config: " + config);
+			mCloudStreamer.setConfig(config);
+		}
 		mCloudStreamer.setSource(msAccessToken);
-
 
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		edtId = (AutoCompleteTextView)findViewById(R.id.edit_id);
