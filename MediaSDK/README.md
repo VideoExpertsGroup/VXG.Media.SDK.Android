@@ -14,7 +14,7 @@ Encoding module can be used for any kind of mobile video broadcasting: home surv
 Source code of samples can be provided.
 
 ## Documentation 
-The full SDK documentation can be found here - https://dashboard.videoexpertsgroup.com/docs/. 
+The full SDK documentation can be found here - https://github.com/VideoExpertsGroup/VXG.Media.SDK.Android/tree/master/Documentation. 
 
 ## Player SDK
    Main features:

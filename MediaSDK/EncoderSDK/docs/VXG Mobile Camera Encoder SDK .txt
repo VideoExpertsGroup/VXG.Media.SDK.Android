@@ -1,1 +1,1 @@
-https://docs.vxg.io/#Android.EncoderSDK/
+https://github.com/VideoExpertsGroup/VXG.Media.SDK.Android/blob/master/Documentation/Android.EncoderSDK.md

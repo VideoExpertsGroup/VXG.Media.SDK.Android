@@ -2,8 +2,6 @@
 
 # VXG Media SDK for Android
 
-
-
 ## Disclaimer
 This is a non-commercial version of VXG Media SDK for Android. Playback is limited to 2 minutes.
 Commercial use and access to extra features requires a license. Learn more about <a href="https://www.videoexpertsgroup.com">VXG RTSP SDK.</a>
