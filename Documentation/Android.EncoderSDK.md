@@ -35,13 +35,10 @@ VXG Mobile SDK structure:
 ## SDK structure
 The SDK package consists of the following files and folders:
 
-* bin (Sample application package)
-    - MediaStreamTest.apk
-* libs (Library files to be linked to the application)
-    - mediacapturedk.jar 
-    - libstreamer.so 
-    - librtstm.so
-* src (Sample project to test the SDK)
+* aar   (Aar archive) 
+* bin 	(Link on the samples applications binaries)
+* docs	(Files with links to documentation)
+* src 	(Sample applications source code)
 
 ## Block diagram
 

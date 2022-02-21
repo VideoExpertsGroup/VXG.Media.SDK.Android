@@ -22,6 +22,13 @@ A class for live and recorded video playback from VXG Server or VXG Cloud.
 
 IMPORTANT: Access token from the Dashboard should be used here
 
+## SDK structure
+The SDK package consists of the following files and folders:
+
+* aar   (Aar archive) 
+* docs	(Files with links to documentation)
+* src 	(Sample applications source code)
+
 #### Key features
 
 * Playback of live streams

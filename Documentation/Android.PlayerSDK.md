@@ -40,17 +40,9 @@ VXG Mobile SDK structure:
 ## SDK structure
 The SDK package consists of following files and folders:
 
-VXG.Mobile.SDK/MediaSDK/MediaPlayer.Android/
-
-* aar (Aar archive) 
-* bin 	(Sample application binaries)
-* libs 	(Shared libraries)
-    - mediaplayersdk.jar
-    - librtspplr-xx.so
-    - librtstm-xx.so
-    - libSDL2-xx.so
-    - libyuv_shared-xx.so
-    (where 'xx' is one of the platforms: ARM general, x86, ARV V7, ARM V7a)
+* aar   (Aar archive) 
+* bin 	(Link on the samples applications binaries)
+* docs	(Files with links to documentation)
 * src 	(Sample applications source code)
 
 ## How to apply a license key
