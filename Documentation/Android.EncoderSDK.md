@@ -42,7 +42,8 @@ The SDK package consists of the following files and folders:
 
 ## Block diagram
 
-![Screenshot](img/Android.Encoder.png)
+![Screenshot](https://user-images.githubusercontent.com/11888021/156012158-549670a6-b66b-4436-8407-e722bb33b568.png)
+
 
 ## How to apply the license key
 
@@ -50,11 +51,11 @@ This is **not required for evaluation and testing**. It is only required after p
 
 **Step 1:** Copy the Mobile license key from the License & Plans page
 
-![Screenshot](img/android.key.1.png)
+![Screenshot](https://user-images.githubusercontent.com/11888021/156011640-5da87a5d-c208-4b90-87ed-0adca54b9213.png)
 
 **Step 2:** Create an empty file called **license** in your application folder **assets** and paste your license key into this file. See the picture below how it should look in corresponded test application **\streamland_streamer**.
 
-![Screenshot](img/android.key.2.png)
+![Screenshot](https://user-images.githubusercontent.com/11888021/156011770-cdba7598-5547-4f94-b697-2fa2db34d359.png)
 
 ## Integration with an application
 #### Integration using a resource file in 2 steps:
