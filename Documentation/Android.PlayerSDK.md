@@ -51,11 +51,13 @@ This is **not required for evaluation and testing**. It’s required only after 
 
 **Step 1:** Copy the Mobile license key from the License & Plans page of the dashboard
 
-![Screenshot](img/android.key.1.png)
+![Screenshot](https://user-images.githubusercontent.com/11888021/156011640-5da87a5d-c208-4b90-87ed-0adca54b9213.png)
+
 
 **Step 2:** Create an empty file called **license** in your application folder **assets** and paste your license key into this file. See on the example below how it should look in a test application **\streamland_player**.
 
-![Screenshot](img/android.key.2.png)
+![Screenshot](https://user-images.githubusercontent.com/11888021/156011770-cdba7598-5547-4f94-b697-2fa2db34d359.png)
+
 
 ## Integration with an application
 
