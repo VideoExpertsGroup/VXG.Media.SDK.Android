@@ -21,7 +21,7 @@ Source code of samples can be provided.
 
 [Encoder SDK](Documentation/Android.EncoderSDK.md)
 
-[Cloud SDK](Documentation/Android.StreamingSDK.md)
+[Cloud SDK](Documentation/Android.CloudSDK.md)
 
 ## Media Player
    Main features:
