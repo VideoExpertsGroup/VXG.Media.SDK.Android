@@ -346,6 +346,13 @@ public class MainActivity extends Activity implements OnClickListener, CloudPlay
 	public void onError(int error) {
 
 	}
+
+	@Override
+	public void onStatusWillShow(CloudPlayerEvent event, int code, String message, CloudPlayerView.onStatusWillShowResult result) {
+		Log.d(TAG,"onStatusWillShow: event: " + event + ", code: " + code + ", message: " + message);
+		//result.update("New text here");
+		//result.skip();
+	}
 	//<= CloudPlayerView.OnCloudPlayerViewChange
 
 }

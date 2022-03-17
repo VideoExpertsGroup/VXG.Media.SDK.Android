@@ -1,5 +1,24 @@
 # VXG Mobile SDK Android
 
+### MobileSDK 2.0.291
+
+ CloudSDK
+Version 2.0.291_20220317:
+- updated versions of used SDK: 
+  PlayerSDK: 6.96.20220317,
+  EncoderSDK: 6.13.20220317
+- added new callback onStatusWillShow for CloudPlayerView
+- corrected error handling
+
+ PlayerSDK
+Version 6.96.20220317:
+- migrated to OpenSSL version 1.1.1n with latest critical CVE
+
+ EncoderSDK
+Version 6.13.20220317:
+- migrated to OpenSSL version 1.1.1n with latest critical CVE
+- fixed secure streaming config setting
+
 ### MobileSDK 2.0.288
 
  CloudSDK
