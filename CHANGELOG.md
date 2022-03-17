@@ -12,11 +12,11 @@ Version 2.0.291_20220317:
 
  PlayerSDK
 Version 6.96.20220317:
-- migrated to OpenSSL version 1.1.1n with latest critical CVE
+- migrated to OpenSSL version 1.1.1n with fixed latest critical CVE
 
  EncoderSDK
 Version 6.13.20220317:
-- migrated to OpenSSL version 1.1.1n with latest critical CVE
+- migrated to OpenSSL version 1.1.1n with fixed latest critical CVE
 - fixed secure streaming config setting
 
 ### MobileSDK 2.0.288
