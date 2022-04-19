@@ -1,5 +1,40 @@
 # VXG Mobile SDK Android
 
+### MobileSDK 2.0.294
+
+ CloudSDK
+Version 2.0.294_20220419:
+- updated versions of used SDK: 
+  PlayerSDK: 6.96.20220411,
+  EncoderSDK: 6.13.20220419
+- added a few checks for avoid Cloud Player crashes
+
+ PlayerSDK
+Version 6.96.20220411:
+- fixed possible deadlock in the HW video decoder implementation
+
+ EncoderSDK
+Version 6.13.20220419:
+- fixed missing jjffmpeg module issue
+- fixed secure streaming config setting
+
+### MobileSDK 2.0.292
+
+ CloudSDK
+Version 2.0.292_20220325:
+- updated versions of used SDK: 
+  PlayerSDK: 6.96.20220325,
+- fixed Cloud Player freeze issue
+- fixed Cloud record segments playing issue
+- updated streamland_player sample
+
+ PlayerSDK
+Version 6.96.20220325:
+- added https(s) protocol to non-interruptable protocols list
+
+ EncoderSDK
+Version 6.13.20220317:
+
 ### MobileSDK 2.0.291
 
  CloudSDK
