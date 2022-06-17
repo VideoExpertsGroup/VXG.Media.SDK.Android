@@ -1,5 +1,17 @@
 # VXG Mobile SDK Android
 
+### MobileSDK 2.0.296
+
+ CloudSDK
+Version 2.0.296_20220618:
+- fixed CloudStreamer connection conflict issue
+
+ PlayerSDK
+Version 6.96.20220411:
+
+ EncoderSDK
+Version 6.13.20220419:
+
 ### MobileSDK 2.0.294
 
  CloudSDK

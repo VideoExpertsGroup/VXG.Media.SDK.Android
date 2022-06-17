@@ -93,7 +93,9 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 	final boolean TEST_THUMBNAIL_UPLOAD_SYNC = false;
 
 	//SET Channel
-	String msAccessToken = "";
+	private long expireTimout = 2 * 60 * 1000;
+	private String msPreviousAccessToken = "";
+	private String msAccessToken = "";
 
 	private SharedPreferences sharedPref = null;
 
@@ -292,15 +294,21 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 
 		mCloudStreamer = new CloudStreamerSDK(new ICloudStreamerCallback() {
 			@Override
-			public void onStarted(String surl) {
-				Log.v(TAG, "=>onStarted surl="+surl);
-				rtmp_url = surl;
-
+			public void onConfigUpdated() {
+				Log.v(TAG, "=>onConfigUpdated");
 				String config = mCloudStreamer.getConfig();
 				Log.v(TAG, "TestConfig: save config: " + config);
 				SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString("token", msAccessToken);
 				editor.putString("config", config);
+				editor.putLong("time", System.currentTimeMillis());
 				editor.apply();
+			}
+
+			@Override
+			public void onStarted(String surl) {
+				Log.v(TAG, "=>onStarted surl="+surl);
+				rtmp_url = surl;
 
 				capturer.getConfig().setUrl(surl);
 				capturer.StartStreaming();
@@ -342,6 +350,8 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 
 			@Override
 			public void onCameraConnected() {
+
+				Log.v(TAG, "=>onCameraConnected");
 
 				if(TEST_SEGMENT_UPLOAD_SYNC || TEST_SEGMENT_UPLOAD_ASYNC) {
 					//test segment upload
@@ -435,9 +445,13 @@ public class MainActivity extends Activity implements OnClickListener, MediaCapt
 			}
 		});
 		mCloudStreamer.getStreamerConfig().useProtocolDefaults(CloudStreamerConfig.ProtocolDefaults.SECURE);
+		long time = sharedPref.getLong("time", 0);
+		msPreviousAccessToken = sharedPref.getString("token", "");
 		String config = sharedPref.getString("config", "");
-		if (!config.isEmpty()) {
-			Log.v(TAG, "TestConfig: restore config: " + config);
+		long delta = (System.currentTimeMillis() - time);
+		if (!config.isEmpty() && !msAccessToken.isEmpty() &&
+					msAccessToken.equals(msPreviousAccessToken) && (delta < expireTimout)) {
+			Log.v(TAG, "TestConfig: restore config: " + config + ", delta: " + delta + ", token: " + msPreviousAccessToken);
 			mCloudStreamer.setConfig(config);
 		}
 		mCloudStreamer.setSource(msAccessToken);
