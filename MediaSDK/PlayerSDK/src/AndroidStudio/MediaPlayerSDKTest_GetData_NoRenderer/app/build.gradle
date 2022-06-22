@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.vxg.mediasdk:playersdk:6.96.20220411'
+    implementation 'com.vxg.mediasdk:playersdk:6.96.20220622'
     implementation 'com.google.android.gms:play-services-vision:20.1.3'
 }
 

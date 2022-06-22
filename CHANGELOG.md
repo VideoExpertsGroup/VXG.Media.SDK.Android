@@ -1,5 +1,21 @@
 # VXG Mobile SDK Android
 
+### MobileSDK 2.0.297
+
+ CloudSDK
+Version 2.0.297_20220622:
+- updated versions of used SDK: 
+  PlayerSDK: 6.96.20220622
+- added the ability to configure the behavior of the sequence of double taps
+
+ PlayerSDK
+Version 6.96.20220622:
+- added support double tap gesture for all aspect ratio zoom/move modes
+- added the ability to configure the behavior of the sequence of double taps
+
+ EncoderSDK
+Version 6.13.20220419:
+
 ### MobileSDK 2.0.296
 
  CloudSDK
