@@ -14,7 +14,7 @@ Version 6.96.20220622:
 - added the ability to configure the behavior of the sequence of double taps
 
  EncoderSDK
-Version 6.13.20220419:
+Version 6.13.20220518:
 
 ### MobileSDK 2.0.296
 
@@ -26,7 +26,7 @@ Version 2.0.296_20220618:
 Version 6.96.20220411:
 
  EncoderSDK
-Version 6.13.20220419:
+Version 6.13.20220518:
 
 ### MobileSDK 2.0.294
 
