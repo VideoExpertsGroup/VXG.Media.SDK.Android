@@ -10,10 +10,12 @@ Version 2.0.298_20220705:
 
  PlayerSDK
 Version 6.96.20220705:
+- migrated openssl to version 1.1.1p
 - migrated to FFMPEG version 4.4.2
 
  EncoderSDK
 Version 6.13.20220705:
+- migrated openssl to version 1.1.1p
 - migrated to FFMPEG version 4.4.2
 
 ### MobileSDK 2.0.297
