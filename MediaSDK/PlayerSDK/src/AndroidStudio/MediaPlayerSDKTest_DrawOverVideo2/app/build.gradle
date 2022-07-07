@@ -20,7 +20,7 @@ android {
 
 
 dependencies {
-    implementation 'com.vxg.mediasdk:playersdk:6.96.20220705'
+    implementation 'com.vxg.mediasdk:playersdk:6.96.20220707'
 	implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
 
